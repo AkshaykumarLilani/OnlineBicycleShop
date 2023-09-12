@@ -1,0 +1,26 @@
+{
+  "name": "onlinebicycleshop",
+  "version": "1.0.0",
+  "description": "Masai Unit 5 - Construct Week Project",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server --watch db.json --port 9095",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkshaykumarLilani/OnlineBicycleShop.git"
+  },
+  "keywords": [
+    "e-commerce"
+  ],
+  "author": "Akshaykumar Lilani, Shivam Pathak, Devendra Shakya, Himanshu Shukla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkshaykumarLilani/OnlineBicycleShop/issues"
+  },
+  "homepage": "https://github.com/AkshaykumarLilani/OnlineBicycleShop#readme",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
