@@ -4,7 +4,7 @@
   "description": "Masai Unit 5 - Construct Week Project",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch db.json --port 9095",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
