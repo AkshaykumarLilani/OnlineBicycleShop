@@ -5,4 +5,6 @@ const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 9095;
 server.use(middlewares);
 server.use(router);
-server.listen(port, ()=>console.log("listening on port: ", port));
+server.listen(port, ()=>{
+    console.log("listening on port: ", port);
+});
