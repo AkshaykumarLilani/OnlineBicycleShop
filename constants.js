@@ -1,1 +1,1 @@
-const baseUrl = "http://localhost:9095"
+const baseUrl = "https://tame-erin-sockeye-vest.cyclic.app"

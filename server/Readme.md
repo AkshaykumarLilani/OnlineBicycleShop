@@ -1,1 +1,1 @@
-This branch is used to deploy on vercel as a backend server.    
+Deployed link: [https://tame-erin-sockeye-vest.cyclic.app](https://tame-erin-sockeye-vest.cyclic.app)
