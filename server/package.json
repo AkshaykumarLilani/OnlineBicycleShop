@@ -1,0 +1,14 @@
+{
+  "name": "online-bicycle-shop-server",
+  "version": "1.0.0",
+  "description": "This is the json-server backend used to build OnlineBicycleShop",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
