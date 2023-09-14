@@ -41,8 +41,11 @@
     flex: 1;
 }
 
-#category-products{
+#category-products-and-pagination{
     flex: 3;
+}
+
+#category-products{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;

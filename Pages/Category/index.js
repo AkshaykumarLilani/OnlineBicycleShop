@@ -56,6 +56,9 @@ const fetchBicycleData = async (page) => {
     try {
         const url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=12" + "&category=" + category;
         const response = await fetch(url);
+        console.log({response});
+        const headers = response.headers.get("X-Total-Count");
+        console.log({headers})
         const json = await response.json();
         console.log({ json });
         appendDataToUI(json);
