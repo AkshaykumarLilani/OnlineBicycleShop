@@ -25,6 +25,22 @@
   border-bottom: 1px solid rgb(218, 209, 209);
   padding: 1em 0;
 }
+#slider {
+  height: 20em;
+  background-size: fit;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#slide-left {
+  float: left;
+}
+#slide-right {
+  float: right;
+}
+#slider-buttons {
+  display: flex;
+  gap: 1em;
+}
 /* classes */
 .card {
   background-color: white;
@@ -98,6 +114,31 @@
   border: 1px solid white;
   color: white;
 }
+.arrow {
+  font-size: 3em;
+  font-weight: bolder;
+  margin-top: 10%;
+}
+.arrow:hover {
+  border: none;
+  border-radius: 0.2em;
+  background-color: rgb(230, 226, 226);
+}
+.image-button {
+  height: 10em;
+  width: 10em;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.image-button:hover {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.image-button-active {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
 /* elements */
 button {
   font-size: 1em;
@@ -109,4 +150,7 @@ button {
 }
 button:hover {
   cursor: pointer;
+}
+body {
+  margin-top: 1em;
 }

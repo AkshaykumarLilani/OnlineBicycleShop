@@ -19,6 +19,8 @@ const bike = {
   price: 10620.0,
   category: "active",
 };
+//!Data
+let index = 0;
 
 //*elements
 const itemCharactersticsContainer = document.querySelector(
@@ -32,6 +34,11 @@ const itemSize = document.querySelector("#item-size > div");
 const strikedOffPrice = document.querySelector(".striked-off");
 const itemDiscount = document.querySelector("#item-discount");
 const itemPrice = document.querySelector("#item-price");
+const slider = document.querySelector("#slider");
+const imageSlider = document.querySelector("#item-image-slider");
+const slideLeft = document.querySelector("#slide-left");
+const slideRight = document.querySelector("#slide-right");
+const sliderButtons = document.querySelector("#slider-buttons");
 
 //?function to show characterstics of bike
 function showCharacterstics(bike) {
@@ -131,13 +138,75 @@ function showDiscount() {
   const markedUpPrice = Math.floor(bike.price * (100 / (100 - discount)));
   strikedOffPrice.textContent = `₹${markedUpPrice}`;
 }
-
+//?function to get images
+function getImages() {
+  const images = [];
+  for (let key in bike) if (key.includes("img")) images.push(bike[key]);
+  return images;
+}
+//? function to show image slider;
+function showImageSlider() {
+  slider.style.backgroundImage = `url(${images[0]})`;
+  images.forEach((image, index) => {
+    const imageBtn = document.createElement("button");
+    imageBtn.classList.add("image-button");
+    imageBtn.style.backgroundImage = `url(${image})`;
+    imageBtn.name = index;
+    sliderButtons.append(imageBtn);
+  });
+  imageSlider.append(sliderButtons);
+  document
+    .querySelectorAll("#slider-buttons > button")[0]
+    .classList.add("image-button-active");
+}
+//? function to handle slide left
+slideLeft.addEventListener("click", (event) => {
+  const currentBtn = document.querySelectorAll("#slider-buttons > button")[
+    index
+  ];
+  currentBtn.classList.remove("image-button-active");
+  if (index == 0) index = images.length - 1;
+  else index--;
+  slider.style.backgroundImage = `url(${images[index]})`;
+  const activeBtn = document.querySelectorAll("#slider-buttons > button")[
+    index
+  ];
+  activeBtn.classList.add("image-button-active");
+});
+//? function to handle slide right
+slideRight.addEventListener("click", (event) => {
+  const currentBtn = document.querySelectorAll("#slider-buttons > button")[
+    index
+  ];
+  currentBtn.classList.remove("image-button-active");
+  if (index == images.length - 1) index = 0;
+  else index++;
+  slider.style.backgroundImage = `url(${images[index]})`;
+  const activeBtn = document.querySelectorAll("#slider-buttons > button")[
+    index
+  ];
+  activeBtn.classList.add("image-button-active");
+});
+//? function to manage image button click
+sliderButtons.addEventListener("click", ({ target }) => {
+  if (target.localName === "button") {
+    const currentBtn = document.querySelectorAll("#slider-buttons > button")[
+      index
+    ];
+    currentBtn.classList.remove("image-button-active");
+    index = +target.name;
+    slider.style.backgroundImage = `url(${images[index]})`;
+    target.classList.add("image-button-active");
+  }
+});
 //!function calls
 showCharacterstics(bike);
 showItemDescription(bike);
 showRating();
 showColors();
 showDiscount();
+const images = getImages();
+showImageSlider();
 //!hiding the last two characterstics
 const lastTwoItems = document.querySelectorAll(
   "#item-characterstics > div > div:nth-last-child(-n+3)"
