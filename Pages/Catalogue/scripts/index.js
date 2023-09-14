@@ -39,6 +39,8 @@ function displayBikeTypes() {
 function createCard({ img_url, name }) {
   const card = document.createElement("div");
   card.classList.add("catalogue-card");
+  card.style.cursor = "pointer";
+  card.addEventListener("click", () => {window.location.assign("/Pages/Category/index.html?category="+name.toLowerCase())});
 
   const image = document.createElement("img");
   image.src = img_url;

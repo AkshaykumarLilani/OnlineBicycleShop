@@ -47,3 +47,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
+
+#category-title{
+    text-transform: capitalize;
+}
