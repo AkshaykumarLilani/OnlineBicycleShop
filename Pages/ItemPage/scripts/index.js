@@ -15,7 +15,7 @@ const bike = {
   description:
     "The Shimano derailleurs and shifters are made with Japanese technology for a seamless gear shifting experience and trustworthy performance. The stylish bike has a 21 speed (7 X 3) setting that allows the rider to shift gears according to his requirement. The bike comes packed with light and strong double walled alloy rims along with 27.5 inches wide tyres that supports comfortable riding and a major performance advantage on the road.",
   year: 2090,
-  rating: 4.9,
+  rating: 3.3,
   price: 10620.0,
   category: "active",
 };
@@ -25,7 +25,13 @@ const itemCharactersticsContainer = document.querySelector(
   "#item-characterstics > div"
 );
 const itemDescription = document.querySelector("#item-description");
-console.log(itemDescription);
+const itemName = document.querySelector("#item-name");
+const itemRating = document.querySelector(".rating-value");
+const itemColor = document.querySelector("#item-color > div");
+const itemSize = document.querySelector("#item-size > div");
+const strikedOffPrice = document.querySelector(".striked-off");
+const itemDiscount = document.querySelector("#item-discount");
+const itemPrice = document.querySelector("#item-price");
 
 //?function to show characterstics of bike
 function showCharacterstics(bike) {
@@ -68,7 +74,6 @@ function showCharacterstics(bike) {
 function handleToggleView({ target }) {
   const { textContent } = target;
 
-  console.log(lastTwoItems);
   switch (textContent) {
     case "⬇Show More":
       target.textContent = "⬆Show Less";
@@ -94,12 +99,51 @@ function showItemDescription({ description }) {
   desc.textContent = description;
   itemDescription.append(desc);
 }
+//? function to show rating of item
+function showRating() {
+  const { rating } = bike;
+  const stars = document.querySelectorAll(".star");
+  let i;
+  for (i = 0; i < Math.floor(rating); i++)
+    stars[i].style.backgroundColor = "#c68409";
+  if (rating - i > 0) {
+    const percentage = Math.floor((rating - i) * 100);
+    stars[
+      i
+    ].style.backgroundImage = `linear-gradient(to right, #c68409 ${percentage}%,#fff ${
+      100 - percentage
+    }%)`;
+  }
+}
+//?function to show color:
+function showColors() {
+  bike.frame_colors.forEach((color) => {
+    const colorBtn = document.createElement("button");
+    colorBtn.style.backgroundColor = color;
+    colorBtn.classList.add("color-button");
+    itemColor.append(colorBtn);
+  });
+}
+//? function to show discount and striked off price;
+function showDiscount() {
+  const discount = Math.floor(Math.random() * 11) + 10;
+  itemDiscount.textContent = `${discount}%`;
+  const markedUpPrice = Math.floor(bike.price * (100 / (100 - discount)));
+  strikedOffPrice.textContent = `₹${markedUpPrice}`;
+}
 
 //!function calls
 showCharacterstics(bike);
 showItemDescription(bike);
+showRating();
+showColors();
+showDiscount();
 //!hiding the last two characterstics
 const lastTwoItems = document.querySelectorAll(
   "#item-characterstics > div > div:nth-last-child(-n+3)"
 );
 lastTwoItems.forEach((item) => (item.style.display = "none"));
+//! setting initial Data
+itemName.textContent = bike.title;
+itemRating.textContent = bike.rating;
+itemPrice.textContent = `₹${bike.price}`;
