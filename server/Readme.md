@@ -1,1 +1,3 @@
-This branch is used to deploy on vercel as a backend server.    
+Deployed link: 
+
+[https://bicycle-shop-json-server.cyclic.app](https://bicycle-shop-json-server.cyclic.app/)
