@@ -49,19 +49,18 @@ if (category) {
 }
 
 const generateFilter = () => {
-
+    
 }
 
 const fetchBicycleData = async (page) => {
     try {
         const url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=12" + "&category=" + category;
         const response = await fetch(url);
-        console.log({response});
-        const headers = response.headers.get("X-Total-Count");
-        console.log({headers})
+        const totalCount = Number(response.headers.get("X-Total-Count"));
         const json = await response.json();
-        console.log({ json });
+        console.log({ totalCount, json });
         appendDataToUI(json);
+        addPagination(totalCount);
     } catch (error) {
         console.error({ "fetchBicycleData Error": error });
     }
@@ -69,11 +68,36 @@ const fetchBicycleData = async (page) => {
 
 const appendDataToUI = (data) => {
     let container = document.getElementById("category-products");
+    container.innerHTML = null;
     if (container) {
         data.forEach((d) => {
             container.append(categoryPageBicycleCard(d));
         });
     }
+}
+
+const addPagination = (totalCount) => {
+    let paginationWrapper = document.querySelector("#category-products-pagination-wrapper");
+    paginationWrapper.innerHTML = null;
+    let totalPages = Math.ceil(totalCount/12);
+    for (let i = 0; i < totalPages; i++){
+        let div = document.createElement("div");
+        div.className = "pagination-page";
+        if (pageNumber === i+1){
+            div.classList.add("active");
+        }
+        div.innerText = i+1;
+        div.addEventListener("click", (event) => {
+            pageNumber = i+1;
+            fetchBicycleData(pageNumber);
+        })
+        paginationWrapper.append(div);
+    }
+    scrollUpToTop();
+}
+
+const scrollUpToTop = () => {
+    let top = document.documentElement.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 }
 
 fetchBicycleData(1);
