@@ -65,46 +65,49 @@
     <div class="area">
       <div class="row">
         <div class="col2">
-          <input type="text" name="firstname">
-          <label for="fistname">First Name</label>
+          <input type="text" id="firstName" name="firstname">
+          <label for="firstName">First Name</label>
         </div>
         <div class="col2">
-          <input type="text" name="lastname">
-          <label for="lastname">Last Name</label>
+          <input type="text" id="lastName" name="lastname">
+          <label for="lastName">Last Name</label>
         </div>
       </div>
       <div class="row">
-        <input type="text" name="phone" id="phone">
-        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone">
+
+
+        <label for="phoneNumber">Phone</label>
       </div>
       <div class="row">
-        <input type="text" name="address" id="address">
+        <input type="text" id="address" name="address" id="address">
         <label for="address">Address</label>
       </div>
-  
+
     </div>
-    <div class="area">
+    <!-- <div class="area">
       <div class="ckeckarea">
         <input type="checkbox" name="checkbox1" id="checkbox1" onclick="autofilling(this.form)">
         <label for="checkbox1">Check this box if order info and sending info are the same.</label>
-      </div>
-      <div class="row">
+      </div> -->
+      <!-- <div class="row">
         <div class="col2">
-          <input type="text" name="newfirstname">
-          <label for="newfistname">First Name</label>
+          <input type="text" id="newFirstName" name="newfirstname">
+          <label for="newFirstName">First Name</label>
+        </div> -->
+        <!-- <div class="col2">
+          <input type="text" id="newLastName" name="newlastname">
+          <label for="newLastName">Last Name</label>
         </div>
-        <div class="col2">
-          <input type="text" name="newlastname">
-          <label for="newlastname">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
+      </div> -->
+      <!-- <div class="row">
         <input type="text" name="newaddress" id="newaddress">
         <label for="newaddress">Sending Address</label>
       </div>
     </div>
-    <div class="row">
-      <input type="submit" value="Submit" class="btn">
+    <div class="row"> -->
+      <!-- <input type="submit" value="Submit" class="btn"> -->
+      <button type="submit" class="btn">Submit</button>
       <input type="submit" value="cancel" class="btn">
     </div>
   </form>
@@ -202,144 +205,5 @@
 </body>
 
 </html>
-
-<script src="./script/signup.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js"></script>
-
-
-
-<script type="module">
-
-  import topSec from "./component/topSection.js"
-  let topContainer = document.getElementById("top");
-  topContainer.innerHTML = topSec();
-
-
-  import dropdown from "./component/dropdown.js"
-  let dropdownContainer = document.getElementById("drop-down");
-  dropdownContainer.innerHTML = dropdown();
-
-  import newslater from "./component/newslater.js"
-  let newsContainer = document.getElementById("newsletter");
-  newsContainer.innerHTML = newslater();
-
-  import footer1 from "./component/footer.js"
-  let footerContainer = document.getElementById("mainFooter");
-  footerContainer.innerHTML = footer1();
-</script>
-
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
-  import {
-      getAuth,
-      createUserWithEmailAndPassword,
-      GoogleAuthProvider,
-      signInWithPopup
-  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-  import {
-      getDatabase,
-      ref,
-      set,
-  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-
-  const firebaseConfig = {
-      apiKey: "AIzaSyBhmOoAIMsZyc10v6ljfC8Z-1qzNX0qXFw",
-      authDomain: "myproject-58656.firebaseapp.com",
-      projectId: "myproject-58656",
-      storageBucket: "myproject-58656.appspot.com",
-      messagingSenderId: "332827951988",
-      appId: "1:332827951988:web:a047ef463eb1afce8ee221",
-      measurementId: "G-FP2C2ZGBYC",
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const database = getDatabase();
-  const auth = getAuth();
-
-  document.getElementById("register_btn").addEventListener("click", function (event) {
-      event.preventDefault();
-      let email = document.getElementById("email").value;
-      let password = document.getElementById("password").value;
-      let userName = document.getElementById("username").value;
-
-      createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-              const user = userCredential.user;
-              localStorage.setItem("userId", user.uid);
-              set(ref(database, "users/" + user.uid), {
-                  username: userName,
-                  email: email,
-              });
-              alert("Register Successfully");
-          })
-          .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorMessage);
-          });
-  });
-
-  const provider = new GoogleAuthProvider();
-  document.getElementById("google_signup_btn").addEventListener("click", function () {
-      signInWithPopup(auth, provider)
-          .then((result) => {
-              const user = result.user;
-              console.log(user);
-          })
-          .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorMessage);
-          });
-  });
-
-  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-
-// ... your existing code ...
-
-// Check for auth state changes
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // User is signed in.
-        const displayNameElement = document.getElementById("displayName");
-        displayNameElement.innerText = user.displayName || 'User'; 
-        
-        // Show and hide relevant links
-        document.getElementById("loginLink").style.display = "none";
-        document.getElementById("signupLink").style.display = "none";
-        document.getElementById("signoutLink").style.display = "block";
-    } else {
-        // User is signed out.
-        const displayNameElement = document.getElementById("displayName");
-        displayNameElement.innerText = ''; 
-        
-        // Show and hide relevant links
-        document.getElementById("loginLink").style.display = "block";
-        document.getElementById("signupLink").style.display = "block";
-        document.getElementById("signoutLink").style.display = "none";
-    }
-});
-
-// Handle the sign-out
-document.getElementById("signoutLink").addEventListener("click", function (event) {
-    event.preventDefault();
-    signOut(auth).then(() => {
-        alert('Signed out successfully.');
-    }).catch((error) => {
-        console.error("Error signing out: ", error);
-    });
-});
-
-
-
-</script>
-
-
-
-
+<script src="./script/checkout.js"></script>
+<script src="./script/payment.js"></script>
