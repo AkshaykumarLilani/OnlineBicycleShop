@@ -11,7 +11,7 @@ footer {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
   
-  .footer {
+  .footer1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -26,7 +26,7 @@ footer {
       margin-bottom: 12px;
       color: white;
     }
-    .brand .h5 {
+    .brand1 .h5 {
       display: flex;
       text-transform: uppercase;
       gap: 16px;
@@ -40,7 +40,7 @@ footer {
       gap: 20px;
     }
   
-    .brand {
+    .brand1 {
       max-width: 200px;
       gap: 24px;
       line-height: 1.5;
@@ -48,7 +48,7 @@ footer {
     }
   }
   
-  .newsletter {
+  .newsletter1 {
     position: relative;
     input {
       font-size: 16px;
@@ -87,12 +87,12 @@ footer {
   }
 
   
-.newsletter {
+.newsletter1 {
     display: flex; /* Use flex display */
     align-items: center; /* Vertically align content */
   }
   
-  .newsletter input {
+  .newsletter1 input {
     flex: 1;
     font-size: 15px;
     height: 55px;
@@ -102,7 +102,7 @@ footer {
 
   }
   
-  .newsletter button {
+  .newsletter1 button {
     padding: 6px 29px;
     height: 54px;
     font-size: 18px;
@@ -114,12 +114,12 @@ footer {
 
 
   
-  .social {
+  .social1 {
     display: flex;
     flex-direction: row;
     gap: 16px;
   
-    .social-icon {
+    .social-icon1 {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -137,7 +137,7 @@ footer {
     }
   }
   
-  .copyright {
+  .copyright1 {
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -157,13 +157,14 @@ footer {
     }
   }
   
-  p, a {
+  .copyright1 p, a {
     font-size: 16px;
     font-weight: 400;
     color: white;
+    text-decoration: none;
   }
   
-  a {
+  .about1 a {
     color: white-and-gray-light-gray;
     text-decoration: none;
     color: white;
@@ -193,7 +194,7 @@ footer {
   }
   
   @media (max-width: 960px) {
-    .footer {
+    .footer1 {
       gap: 72px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -204,7 +205,7 @@ footer {
       }
     }
   
-    .subscribe {
+    .subscribe1 {
       display: block;
       grid-column-start: 1;
       grid-column-end: 3;
@@ -212,19 +213,19 @@ footer {
         width: 100%;
         max-width: 370px;
       }
-      .newsletter input {
+      .newsletter1 input {
         width: calc(100% - 22px);
       }
     }
   
-    .copyright {
+    .copyright1 {
       padding: 32px 5vw;
       p, a {
         font-size: 14px;
       }
     }
   
-    .footer {
+    .footer1 {
       padding: 72px 8vw;
     }
   }
@@ -234,7 +235,7 @@ footer {
       font-size: 14px;
     }
   
-    .footer .h5 {
+    .footer1 .h5 {
       font-size: 16px;
     }
   }
