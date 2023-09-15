@@ -2,7 +2,7 @@ export const categoryPageBicycleCard = function (data) {
     let parentDiv = document.createElement("div");
     parentDiv.classList.add("category-page-bicycle-card");
     parentDiv.addEventListener("click", () => {
-        localStorage.setItem("item-id", data.id);
+        localStorage.setItem("item-page-data", JSON.stringify(data));
         window.location.assign("/Pages/ItemPage/index.html");
     });
 
