@@ -1,0 +1,1 @@
+GET https://bicycle-shop-json-server.cyclic.app/bikes?_page=1&_limit=12&category=kids&frame_colors=lightPink&frame_colors=Orange

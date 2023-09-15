@@ -7,6 +7,11 @@ let category = "";
 
 let pageNumber = 1;
 
+let sortObj = {
+    _sort: "",
+    _order: "asc",
+}
+
 const getSearchParams = () => {
     let obj = {};
 
@@ -34,7 +39,7 @@ console.log({ searchParams });
 if (searchParams.category) {
     category = searchParams.category;
 } else {
-    window.location.assign(window.location.href + "?category=mountain");
+    window.location.assign(window.location.href + "?category=active");
 }
 
 console.log({ category });
@@ -66,17 +71,27 @@ const addSpinner = (id, text) => {
 
 const removeSpinner = (containerId) => {
     let ele = document.getElementById(containerId + "-spinner");
-    console.log(ele);
+    // console.log(ele);
     ele.remove();
+}
+
+const removeExistingProducts = () => {
+    let container = document.getElementById("category-products");
+    if (container) container.innerHTML = null;
 }
 
 const fetchBicycleData = async (page) => {
     try {
-        let container = document.getElementById("category-products");
-        container.innerHTML = null;
+        removeExistingProducts();
+        removeExistingPagination();
         addSpinner("category-filters", "Filters");
         addSpinner("category-products-and-pagination", "Products");
-        const url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=12" + "&category=" + category;
+        let url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=12" + "&category=" + category;
+
+        if (sortObj._sort) {
+            url += `&_sort=${sortObj._sort}&_order=${sortObj._order}`;
+        }
+
         const response = await fetch(url);
         const totalCount = Number(response.headers.get("X-Total-Count"));
         const json = await response.json();
@@ -99,10 +114,16 @@ const appendDataToUI = (data) => {
     }
 }
 
-const addPagination = (totalCount) => {
+const removeExistingPagination = () => {
     let paginationWrapper = document.querySelector("#category-products-pagination-wrapper");
-    paginationWrapper.innerHTML = null;
+    if (paginationWrapper){
+        paginationWrapper.innerHTML = null;
+    }
+}
 
+const addPagination = (totalCount) => {
+    removeExistingPagination();
+    let paginationWrapper = document.querySelector("#category-products-pagination-wrapper");
     let totalPages = Math.ceil(totalCount / 12);
     for (let i = 0; i < totalPages; i++) {
         let div = document.createElement("div");
@@ -136,3 +157,28 @@ addSpinner("category-products-and-pagination", "Products");
 setTimeout(() => {
     fetchBicycleData(1);
 }, 500);
+
+const sortEvent = (event) => {
+    let value = event.target.value;
+    console.log({ event, value });
+    if (value === "phl") {
+        sortObj._sort = "price";
+        sortObj._order = "desc";
+    } else if (value === "plh") {
+        sortObj._sort = "price";
+        sortObj._order = "asc";
+    } else if (value === "tasc") {
+        sortObj._sort = "title";
+        sortObj._order = "asc";
+    } else if (value === "tdsc") {
+        sortObj._sort = "title";
+        sortObj._order = "desc";
+    } else if (value === "select") {
+        sortObj._sort = "";
+    }
+    fetchBicycleData(1);
+}
+
+let sortSelect = document.getElementById("products-sort-by");
+console.log(sortSelect)
+sortSelect.addEventListener("change", sortEvent);
