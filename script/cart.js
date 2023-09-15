@@ -86,7 +86,6 @@ function updateCart() {
     }
 }
 
-// ... (rest of the code remains the same)
 
 
 // ... (Previous code remains the same)
