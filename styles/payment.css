@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
+
+*{
+  font-family: 'Raleway', sans-serif;
+}
 
 * {
     box-sizing: border-box;
   }
+
   
   #rzp-button1 {
     width: 216px;
     height: 50px;
-    background-color: #013e62;
+    background-color: #C68409;
     /* border: 1px solid white; */
     border-radius: 10px;
     color: white;
@@ -17,7 +23,7 @@
   
   #rzp-button1:hover {
     cursor: pointer;
-    background-color: #976217fa;
+    background-color: #eb001B;
   }
   
   #payDiv {
@@ -31,14 +37,12 @@
   
   #deliveryAddressBox {
     flex: 1;
-  
     padding: 20px;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     /* margin-right: 20px; */
-  
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
-    border-radius: 38px; /* Optional: Rounds the corners */
-    margin: 35px 0px 55px 68px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 29px 155px 55px 129px
   }
   p {
     font-size: 23px;
@@ -47,12 +51,12 @@
   h2 {
     font-size: 35px;
     line-height: 54px;
-    color: #2b2113;
+    color: #ffffff;
     font-family: system-ui;
   }
   .line {
     height: 4px;
-    background-color: #6681a8; /* You can adjust the color as per your design */
+    background-color: #eed706; /* You can adjust the color as per your design */
     margin: 22px 0; /* Add some margin for spacing */
   }
   
@@ -63,3 +67,7 @@
     margin-right: 134px;
   }
   
+
+  #deliveryAddressBox p {
+    color: rgb(255, 255, 255);
+  }

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./styles/signup.css">
   <link rel="stylesheet" href="./styles/login.css">
   <link rel="stylesheet" href="./styles/checkout.css">
+  <link rel="stylesheet" href="./styles/cart.css">
 
 
 </head>
@@ -59,65 +60,49 @@
       </ul>
     </div>
   </section>
+  <section id="cart" class="section-p1">
 
-  <form id="myform">
-    <header>Shipping Order Form</header>
-    <div class="area">
-      <h3>PERSONAL INFORAMTION</h3>
-      <div class="row">
-        <div class="col2">
-          <input required type="text" id="firstName" name="firstname">
-          <label for="firstName">First Name</label>
-        </div>
-        <div class="col2">
-          <input  required type="text" id="lastName" name="lastname">
-          <label for="lastName">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <input required type="text" id="phone" name="phone">
-        <label for="phoneNumber">Phone</label>
-      </div>
+    <table width="100%" class="cart-content">
+        <thead>
+            <tr>
+                <td > </td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="right-section">
+        <h2>Cart Total</h2>
 
-     <br>
-      <h3>SHIPPING ADDRESS</h3>
-      <div id="biiling">
-      <div class="row">
-        <div class="col2">
-          <input  required type="text" id="address1" name="address1">
-          <label for="address1">Address line 1</label>
+        <div class="total-section cart-content">
+            <p>Subtotal : <span id="total">0.00</span></p>
         </div>
-        <div class="col2">
-          <input  required type="text" id="address2" name="address2">
-          <label for="address2">Address line 2</label>
+        <div class="line"></div>
+
+        <div class="coupon-section cart-content">
+            <input type="text" id="coupon-code" placeholder="Enter coupon code">
+            <button id="apply-coupon">Apply Coupon</button>
+            <p class="discount-text">Discount: <span id="discount">0.00</span></p>
         </div>
-      </div>
-      <div class="row">
-        <div class="col2">
-          <input  required type="text" id="city" name="city">
-          <label for="city">City</label>
+
+        <div class="checkout-button empty-cart cart-content">
+            <a href="checkout.html" class="normal">Proceed to Checkout</a>
         </div>
-        <div class="col2">
-          <input  required type="text" id="state" name="state">
-          <label for="state">State</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col2">
-          <input  required type="text" id="postal-code" name="postal-code">
-          <label for="postal-code">Postal Code</label>
-        </div>
-        <div class="col2">
-          <input  required type="text" id="country" name="country">
-          <label for="country">Country</label>
-        </div>
-      </div>
-      </div>
     </div>
-    <button type="submit" class="btn">Submit</button>
-    <input type="submit" value="cancel" class="btn">
+
+    <div class="empty-cart-button">
+        <img src="https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png"
+            alt="Empty Cart Image" id="empty-cart-image">
+        <p>No Item in Cart</p>
+
+        <a href="index.html"><button id="shopping-button">Click for Shopping</button></a>
     </div>
-  </form>
+</section>
 
   <footer>
 
@@ -214,3 +199,4 @@
 </html>
 <script src="./script/checkout.js"></script>
 <script src="./script/payment.js"></script>
+<script src="./script/cart.js"></script>

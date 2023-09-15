@@ -1,24 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
+
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
 body {
-    background: #282A2C;
+    background: #464445;
     font-family: 'Open Sans', sans-serif;
   }
   
   #myform {
     margin: 50px auto;
-    width: 43%;
+    width: 30%;
   }
   
   header {
     color: #ffffff;
     font-size: 1.7em;
     padding: 3% 0;
+    font-weight: bolder;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   }
   
   .area {
-    color: rgba(115, 224, 130, 0.2);
+    color: rgb(255, 244, 221);
     width: 100%;
     margin: 40px 0;
+    font-size: 18px;
   }
   
   label {
@@ -40,6 +49,7 @@ body {
     display: table-row-group;
     transition: all 0.3s ease;
     font-size: 1.05em;
+    font-weight: bolder;
   }
 
   input:focus {
@@ -62,12 +72,29 @@ body {
     display: table;
     width: 47%;
     float: left;
+    /* margin-right: 26px; */
   }
-  
+
   .col2:nth-child(2) {
     float: right;
+  
     display: table;
   }
+
+    
+  .col3 {
+    display: table;
+    width: 100%;
+    float: left;
+  }
+  
+  .col3:nth-child(2) {
+    float: right;
+  
+    display: table;
+  }
+
+
   
   .ckeckarea input[type="checkbox"] {
     display: none;
@@ -157,7 +184,8 @@ body {
     width: 100%;
     float: left;
   }
-    
+
+ 
     .ckeckarea label {
     line-height:20px;
   }

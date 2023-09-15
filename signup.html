@@ -38,8 +38,12 @@
     <div class="right-section1">
       <div class="icons1">
         <a href="cart.html">
-          <i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; margin-right: 50px;"></i></a>
-        <i class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
+          <i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; margin-right: 50px;"></i>
+        </a>
+        <span id="user-details" style="display: none; margin-right: 38px; color: #ffffff;">
+          <!-- Username will be inserted here -->
+        </span>
+        <i id="user-icon" class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
         <i class="fa-regular fa-heart" style="color: #eeeeee;"></i>
       </div>
     </div>
@@ -309,6 +313,18 @@ document.getElementById("signoutLink").addEventListener("click", function (event
         console.error("Error signing out: ", error);
     });
 });
+
+function onSignIn(googleUser) {
+  // Get the user details from the Google User object
+  var profile = googleUser.getBasicProfile();
+  var username = profile.getName();
+
+  // Update the DOM to display the username and hide the user icon
+  document.getElementById('user-details').textContent = username;
+  document.getElementById('user-details').style.display = 'inline';
+  document.getElementById('user-icon').style.display = 'none';
+}
+
 
 
 
