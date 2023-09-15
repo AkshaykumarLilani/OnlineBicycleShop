@@ -1,7 +1,18 @@
+:root{
+    --color-yellow: #C68409;
+    --color-red: #EB001B;
+    --color-gray: #262626;
+    --color-grad: #422F0B;
+}
+
 body {
     font-family: 'Raleway', sans-serif;
     margin: 0px;
     margin-left: 30px;
     margin-right: 30px;
-    background-color: gray;
+    background-color: #262626;
+}
+
+.text-white {
+    color: white;
 }
