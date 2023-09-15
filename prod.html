@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Store Products</title>
+    <style>
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+        }
+
+        .cart {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake Store Products</h1>
+    <div id="products-container"></div>
+    <h2>Cart</h2>
+    <div id="cart" class="cart"></div>
+
+    <script>
+    const productsContainer = document.getElementById('products-container');
+    const cartContainer = document.getElementById('cart');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Fetch data from the API
+    fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(product => {
+                // Create a card for each product
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}" />
+                    <h3>${product.title}</h3>
+                    <p>$${product.price}</p>
+                    <button onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button>
+                `;
+                productsContainer.appendChild(card);
+            });
+        });
+
+    // Add a product to the cart, update local storage, and show an alert
+    function addToCart(product) {
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        // Show an alert
+        alert(`${product.title} has been added to the cart.`);
+    }
+
+    // Initialize the cart display
+    function updateCart() {
+        cartContainer.innerHTML = '';
+        cart.forEach(product => {
+            const cartItem = document.createElement('div');
+            cartItem.innerHTML = `
+                <p>${product.title} - $${product.price.toFixed(2)}</p>
+            `;
+            cartContainer.appendChild(cartItem);
+        });
+    }
+
+    // Initialize the cart display
+    updateCart();
+    </script>
+    <a href="cart.html">Go to Cart</a>
+</body>
+</html>

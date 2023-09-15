@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
+
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+  
+  #rzp-button1 {
+    width: 216px;
+    height: 50px;
+    background-color: #C68409;
+    /* border: 1px solid white; */
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 800;
+  }
+  
+  #rzp-button1:hover {
+    cursor: pointer;
+    background-color: #eb001B;
+  }
+  
+  #payDiv {
+    width: 60%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  #deliveryAddressBox {
+    flex: 1;
+    padding: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    /* margin-right: 20px; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 29px 155px 55px 129px
+  }
+  p {
+    font-size: 23px;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 35px;
+    line-height: 54px;
+    color: #ffffff;
+    font-family: system-ui;
+  }
+  .line {
+    height: 4px;
+    background-color: #eed706; /* You can adjust the color as per your design */
+    margin: 22px 0; /* Add some margin for spacing */
+  }
+  
+  element.style {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-right: 134px;
+  }
+  
+
+  #deliveryAddressBox p {
+    color: rgb(255, 255, 255);
+  }
