@@ -45,27 +45,27 @@ if (category) {
     if (categoryTitleHTMLElement) {
         categoryTitleHTMLElement.innerText = category;
     }
-    if (htmlHeadTitleElement){
+    if (htmlHeadTitleElement) {
         htmlHeadTitleElement.innerText = category[0].toUpperCase() + category.slice(1) + " Bicycles";
     }
 }
 
 const generateFilter = () => {
-    
+
 }
 
 const addSpinner = (id, text) => {
-    let filtersElSpinner = document.getElementById(id+"-spinner");
-    if (!filtersElSpinner){
+    let filtersElSpinner = document.getElementById(id + "-spinner");
+    if (!filtersElSpinner) {
         let filtersEl = document.getElementById(id);
-        if (filtersEl){
-            filtersEl.append(getSpinnerElement("yellow", id+"-spinner", `Loading ${text}...`));
+        if (filtersEl) {
+            filtersEl.append(getSpinnerElement("yellow", id + "-spinner", `Loading ${text}...`));
         }
     }
 }
 
 const removeSpinner = (containerId) => {
-    let ele = document.getElementById(containerId+"-spinner");
+    let ele = document.getElementById(containerId + "-spinner");
     console.log(ele);
     ele.remove();
 }
@@ -79,6 +79,7 @@ const fetchBicycleData = async (page) => {
         const totalCount = Number(response.headers.get("X-Total-Count"));
         const json = await response.json();
         console.log({ totalCount, json });
+
         appendDataToUI(json);
         addPagination(totalCount);
     } catch (error) {
@@ -99,16 +100,16 @@ const appendDataToUI = (data) => {
 const addPagination = (totalCount) => {
     let paginationWrapper = document.querySelector("#category-products-pagination-wrapper");
     paginationWrapper.innerHTML = null;
-    let totalPages = Math.ceil(totalCount/12);
-    for (let i = 0; i < totalPages; i++){
+    let totalPages = Math.ceil(totalCount / 12);
+    for (let i = 0; i < totalPages; i++) {
         let div = document.createElement("div");
         div.className = "pagination-page";
-        if (pageNumber === i+1){
+        if (pageNumber === i + 1) {
             div.classList.add("active");
         }
-        div.innerText = i+1;
+        div.innerText = i + 1;
         div.addEventListener("click", (event) => {
-            pageNumber = i+1;
+            pageNumber = i + 1;
             fetchBicycleData(pageNumber);
         })
         paginationWrapper.append(div);
@@ -127,4 +128,8 @@ const scrollUpToTop = () => {
     let top = document.documentElement.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 }
 
-fetchBicycleData(1);
+addSpinner("category-filters", "Filters");
+addSpinner("category-products-and-pagination", "Products");
+setTimeout(()=>{
+    fetchBicycleData(1);
+}, 500);
