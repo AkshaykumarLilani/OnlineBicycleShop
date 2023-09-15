@@ -72,6 +72,8 @@ const removeSpinner = (containerId) => {
 
 const fetchBicycleData = async (page) => {
     try {
+        let container = document.getElementById("category-products");
+        container.innerHTML = null;
         addSpinner("category-filters", "Filters");
         addSpinner("category-products-and-pagination", "Products");
         const url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=12" + "&category=" + category;
@@ -100,6 +102,7 @@ const appendDataToUI = (data) => {
 const addPagination = (totalCount) => {
     let paginationWrapper = document.querySelector("#category-products-pagination-wrapper");
     paginationWrapper.innerHTML = null;
+
     let totalPages = Math.ceil(totalCount / 12);
     for (let i = 0; i < totalPages; i++) {
         let div = document.createElement("div");
@@ -130,6 +133,6 @@ const scrollUpToTop = () => {
 
 addSpinner("category-filters", "Filters");
 addSpinner("category-products-and-pagination", "Products");
-setTimeout(()=>{
+setTimeout(() => {
     fetchBicycleData(1);
 }, 500);

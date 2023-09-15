@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 15px;
+  cursor: pointer;
 }
 
 .bicycle-colors {
@@ -53,6 +54,7 @@
 
 #category-title {
   text-transform: capitalize;
+  margin-bottom: 15px;
 }
 
 #category-products-pagination-wrapper {
@@ -74,12 +76,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 19px;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.bicycle-price{
+  color: black;
+  font-weight: bold;
 }
 
 .pagination-page.active {
     border-color: white;
     background-color: #4e4e4e;
     color: white;
+}
+
+.main-section {
+  padding: 30px 76px;
 }

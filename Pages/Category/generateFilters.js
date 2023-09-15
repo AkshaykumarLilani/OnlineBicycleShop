@@ -12,6 +12,7 @@ const fetchFullData = async () => {
 }
 
 const generateFilters = (data) => {
+  removeFilters();
   let uFCs = findUniqueValues(data, "frame_colors");
   console.log({uFCs});
   let uFCsAccordion = getAccordion("Colors", "color-filters", "colors", uFCs);
@@ -27,6 +28,13 @@ const generateFilters = (data) => {
   let uniqueSizesAccordion = getAccordion("Size", "size-filters", "size", uniqueSizes);
   appendToFilters(uniqueSizesAccordion);
 
+}
+
+const removeFilters = () => {
+  let filtersParent = document.getElementById("category-filters");
+  if (filtersParent){
+    filtersParent.innerHTML = null;
+  }
 }
 
 const appendToFilters = (ele) => {

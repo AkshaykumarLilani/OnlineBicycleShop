@@ -2,11 +2,11 @@ function navbar() {
     return `<div class="left-section">
     <a href="#"><img src="./images/images.png" class="logo" alt="" /></a>
     <ul id="navbar">
-        <li><a class="#" href="#">MOUNTAIN</a></li>
-        <li><a href="#">ROAD</a></li>
-        <li><a href="#">ACTIVE</a></li>
-        <li><a href="#">ELECTRIC</a></li>
-        <li><a href="#">KIDS</a></li>
+        <li><a class="#" href="/Pages/Category/index.html?category=mountain">MOUNTAIN</a></li>
+                <li><a href="/Pages/Category/index.html?category=road">ROAD</a></li>
+                <li><a href="/Pages/Category/index.html?category=active">ACTIVE</a></li>
+                <li><a href="/Pages/Category/index.html?category=electric">ELECTRIC</a></li>
+                <li><a href="/Pages/Category/index.html?category=kids">KIDS</a></li>
         
     </ul>
 </div>

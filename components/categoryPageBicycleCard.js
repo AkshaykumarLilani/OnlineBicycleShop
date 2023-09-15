@@ -1,6 +1,10 @@
 export const categoryPageBicycleCard = function (data) {
     let parentDiv = document.createElement("div");
     parentDiv.classList.add("category-page-bicycle-card");
+    parentDiv.addEventListener("click", () => {
+        localStorage.setItem("item-id", data.id);
+        window.location.assign("/Pages/ItemPage/index.html");
+    });
 
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("bicycle-image-container");
