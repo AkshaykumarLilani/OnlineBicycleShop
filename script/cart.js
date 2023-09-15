@@ -27,8 +27,8 @@ function loadCartItems() {
 }
 
 
-
-
+// Update cart items quantity and totals
+// ... (rest of the code remains the same)
 
 // Update cart items quantity and totals
 function updateCart() {
@@ -86,6 +86,7 @@ function updateCart() {
     }
 }
 
+// ... (rest of the code remains the same)
 
 
 // ... (Previous code remains the same)
@@ -196,17 +197,19 @@ function clearCart() {
     updateCartCount();
 }
 
+// ... (Previous code remains the same)
+
 
 function updateCartCount() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  console.log("Cart Items:", cartItems); 
+  console.log("Cart Items:", cartItems); // Debugging
   let totalCount = 0;
   cartItems.forEach(item => {
-    if (item.quantity) { 
+    if (item.quantity) { // Ensure the item has quantity attribute
       totalCount += item.quantity;
     }
   });
-  console.log("Total Count:", totalCount);
+  console.log("Total Count:", totalCount); // Debugging
   document.getElementById('cart-count').textContent = totalCount;
 }
 
