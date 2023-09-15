@@ -42,9 +42,28 @@
   justify-content: center;
   gap: 1em;
 }
-
 #left-container {
-  width: 60%;
+  width: 50%;
+}
+#payment {
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+}
+#payment > div {
+  width: 10em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+#payment > div > img {
+  width: 100%;
+}
+#exchange-and-return {
+  display: flex;
+}
+#exchange-and-return > span {
+  padding-top: 1.5em;
 }
 /* classes */
 .card {
