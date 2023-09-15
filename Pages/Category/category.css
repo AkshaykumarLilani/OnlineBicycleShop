@@ -36,6 +36,7 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+  gap: 15px;
 }
 
 #category-filters {
@@ -81,17 +82,90 @@
   font-weight: bold;
 }
 
-.bicycle-price{
+.bicycle-price {
   color: black;
   font-weight: bold;
 }
 
 .pagination-page.active {
-    border-color: white;
-    background-color: #4e4e4e;
-    color: white;
+  border-color: white;
+  background-color: #4e4e4e;
+  color: white;
 }
 
 .main-section {
   padding: 30px 76px;
+}
+
+#category-sort-bar {
+  display: flex;
+  color: white;
+  justify-content: end;
+  align-items: center;
+  margin: 20px 0px;
+  gap: 10px;
+  font-weight: bold;
+}
+
+#category-sort-bar > select {
+  background-color: transparent;
+  color: white;
+  outline: 0px;
+  border: none;
+  font-size: 14px;
+}
+
+#category-sort-bar > select > option {
+  color: black;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+  outline: 0px;
+}
+
+.accordion {
+  border-bottom: 1px solid gray;
+  padding: 10px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-body{
+  height: 0px;
+  display: none;
+  transition: height 0.3s ease-in;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.accordion-body.show {
+  height: max-content;
+  display: block;
+}
+
+div.color-filter-option-container{
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 8px;
+}
+
+.color-filter-option{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+div.list-filter-option-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.list-filter-option{
+  font-size: 24px;
 }
