@@ -1,4 +1,4 @@
-const categoryPageBicycleCard = function (data) {
+export const categoryPageBicycleCard = function (data) {
     let parentDiv = document.createElement("div");
     parentDiv.classList.add("category-page-bicycle-card");
 

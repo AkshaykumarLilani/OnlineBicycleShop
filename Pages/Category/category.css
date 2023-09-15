@@ -1,49 +1,85 @@
-.category-page-bicycle-card{
-    border: 1px solid gray;
-    border-radius: 15px;
-    background-color: white;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
+.category-page-bicycle-card {
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 .bicycle-colors {
-    border: 1px solid gray;
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
+  border: 1px solid gray;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
 }
 
-.bicycle-colors-container{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 15px;
+.bicycle-colors-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
 }
 
-.bicycle-image-container{
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.bicycle-image-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-#category-filters-products-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+#category-filters-products-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 
-#category-filters{
-    flex: 1;
+#category-filters {
+  flex: 1;
 }
 
-#category-products{
-    flex: 3;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+#category-products-and-pagination {
+  flex: 3;
+}
+
+#category-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+#category-title {
+  text-transform: capitalize;
+}
+
+#category-products-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pagination-page {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #4f4b4b;
+  border-radius: 5px;
+  background-color: #ffffff8f;
+  color: #4f4b4b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pagination-page.active {
+    border-color: white;
+    background-color: #4e4e4e;
+    color: white;
 }

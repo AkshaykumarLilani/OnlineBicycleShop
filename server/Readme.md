@@ -1,1 +1,1 @@
-Deployed link: [https://tame-erin-sockeye-vest.cyclic.app](https://tame-erin-sockeye-vest.cyclic.app)
+Deployed link: [https://bicycle-shop-json-server.cyclic.app](https://bicycle-shop-json-server.cyclic.app/)
