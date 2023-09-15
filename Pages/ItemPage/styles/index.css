@@ -26,7 +26,7 @@
   padding: 1em 0;
 }
 #slider {
-  height: 20em;
+  height: 25em;
   background-size: fit;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,12 @@
 }
 #slider-buttons {
   display: flex;
+  justify-content: center;
   gap: 1em;
+}
+
+#left-container {
+  width: 60%;
 }
 /* classes */
 .card {
@@ -125,9 +130,9 @@
   background-color: rgb(230, 226, 226);
 }
 .image-button {
-  height: 10em;
+  height: 8em;
   width: 10em;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

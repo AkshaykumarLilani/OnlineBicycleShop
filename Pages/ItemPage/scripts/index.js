@@ -1,23 +1,24 @@
 //TODO temporary data
 const bike = {
-  large_img: "https://m.media-amazon.com/images/I/61BHUGgu62L._SY355_.jpg",
-  img2: "https://m.media-amazon.com/images/I/61Q4ioZf00L._SY355_.jpg",
-  img3: "https://m.media-amazon.com/images/I/61Z-RxhIsEL._SY355_.jpg",
-  img4: "https://m.media-amazon.com/images/I/51R3CK0PaZL._SY355_.jpg",
-  img5: "https://m.media-amazon.com/images/I/5143C+uCBwL._SS75_.jpg",
-  title: "Urban Terrain UT3012S27.5, Steel MTB 27.5 Mountain Cycle",
-  frame_colors: ["Green", "white"],
+  large_img:
+    "https://m.media-amazon.com/images/I/41mXAbIYkCL._SX300_SY300_QL70_FMwebp_.jpg",
+  img2: "https://m.media-amazon.com/images/I/610OAk5EolL._SY355_.jpg",
+  img3: "https://m.media-amazon.com/images/I/619TG7ES60L._SY355_.jpg",
+  img4: "https://m.media-amazon.com/images/I/51ZGjaThlHL._SY355_.jpg",
+  img5: "https://m.media-amazon.com/images/I/61sN7RK0fKL._SY355_.jpg",
+  title: "Urban Terrain UT1000 Steel MTB 27.5 Mountain Cycle",
+  frame_colors: ["black"],
   front_wheel: "Traversal SL 29",
   rear_wheel: "TRAVERSE SL 29",
   Front_tire: "back",
   inner_tubes: "STANDARD, PRESTA VALVE",
   front_Wheel: "BUTCHER GRID TRAIL T7 29 * 2.3",
   description:
-    "The Shimano derailleurs and shifters are made with Japanese technology for a seamless gear shifting experience and trustworthy performance. The stylish bike has a 21 speed (7 X 3) setting that allows the rider to shift gears according to his requirement. The bike comes packed with light and strong double walled alloy rims along with 27.5 inches wide tyres that supports comfortable riding and a major performance advantage on the road.",
-  year: 2090,
-  rating: 3.3,
-  price: 10620.0,
-  category: "active",
+    "The Shimano derailleurs and shifters are made with Japanese technology for a seamless gear shifting experience and trustworthy performance. The stylish bike has a 21 speed (7 X 3) setting that allows the rider to shift gears according to his requirement. The High-quality double disc brakes on both front and rear wheels ensure stable and quick braking. The disc brakes help you navigate safely during challenging situations such as a crowded market. ",
+  year: 2890,
+  rating: 4.5,
+  price: 11920.0,
+  category: "mountain",
 };
 //!Data
 let index = 0;
