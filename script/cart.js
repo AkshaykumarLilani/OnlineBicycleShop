@@ -27,27 +27,12 @@ function loadCartItems() {
 }
 
 
-
-
+// Update cart items quantity and totals
+// ... (rest of the code remains the same)
 
 // Update cart items quantity and totals
 function updateCart() {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-  cartTableBody.innerHTML = "";
-
-  cartItems.forEach((item) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-    <td><img src="${item.image}" alt="${item.name}" /></td>
-    <td>${item.name}</td>
-    <td>${item.price}</td>
-    <td><input type="number" class="quantity" value="${item.quantity}" min="1"></td>
-    <td class="subtotal">${(parseFloat(item.price.replace("Rs.", "")) * item.quantity).toFixed(2)}</td>
-    <td><button class="remove-item">Remove</button></td>
-        `;
-    cartTableBody.appendChild(row);
-  });
 
   // Update totals
   const subtotalElements = document.querySelectorAll(".subtotal");
@@ -57,9 +42,6 @@ function updateCart() {
   });
   document.getElementById("total").textContent = total.toFixed(2);
 
-  // Save the final total to localStorage
-  localStorage.setItem("finalPrice", total.toFixed(2));
-
   // Logic to hide/show cart contents based on cart items
   const cartContents = document.querySelectorAll(".cart-content");
   const shoppingButton = document.getElementById("shopping-button");
@@ -67,25 +49,26 @@ function updateCart() {
 
   const emptyCartSection = document.querySelector(".empty-cart-button"); // Select the "empty cart" section
 
-    if (cartItems.length === 0) {
-        // Hide cart contents, cart total, and discount
-        cartContents.forEach(element => {
-            element.style.display = "none";
-        });
-        rightSection.style.display = "none"; // Hide the right section
-        shoppingButton.style.display = "";
-        emptyCartSection.style.display = "block"; // Show the "empty cart" section
-    } else {
-        // Show cart contents, cart total, and discount
-        cartContents.forEach(element => {
-            element.style.display = "block";
-        });
-        rightSection.style.display = "block"; // Show the right section
-        shoppingButton.style.display = "block";
-        emptyCartSection.style.display = "none"; // Hide the "empty cart" section
-    }
+  if (cartItems.length === 0) {
+    // Hide cart contents, cart total, and discount
+    cartContents.forEach((element) => {
+      element.style.display = "none";
+    });
+    rightSection.style.display = "none"; // Hide the right section
+    shoppingButton.style.display = "";
+    emptyCartSection.style.display = "block"; // Show the "empty cart" section
+  } else {
+    // Show cart contents, cart total, and discount
+    cartContents.forEach((element) => {
+      element.style.display = "block";
+    });
+    rightSection.style.display = "block"; // Show the right section
+    shoppingButton.style.display = "block";
+    emptyCartSection.style.display = "none"; // Hide the "empty cart" section
+  }
 }
 
+// ... (rest of the code remains the same)
 
 
 // ... (Previous code remains the same)
@@ -196,17 +179,19 @@ function clearCart() {
     updateCartCount();
 }
 
+// ... (Previous code remains the same)
+
 
 function updateCartCount() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  console.log("Cart Items:", cartItems); 
+  console.log("Cart Items:", cartItems); // Debugging
   let totalCount = 0;
   cartItems.forEach(item => {
-    if (item.quantity) { 
+    if (item.quantity) { // Ensure the item has quantity attribute
       totalCount += item.quantity;
     }
   });
-  console.log("Total Count:", totalCount);
+  console.log("Total Count:", totalCount); // Debugging
   document.getElementById('cart-count').textContent = totalCount;
 }
 
