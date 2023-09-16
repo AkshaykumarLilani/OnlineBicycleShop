@@ -1,0 +1,198 @@
+.category-page-bicycle-card {
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.bicycle-colors {
+  border: 1px solid gray;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+}
+
+.bicycle-colors-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+}
+
+.bicycle-image-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#category-filters-products-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 15px;
+}
+
+#category-filters {
+  flex: 1;
+}
+
+#category-products-and-pagination {
+  flex: 3;
+}
+
+#category-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+#category-title {
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+
+#category-products-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pagination-page {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #4f4b4b;
+  border-radius: 5px;
+  background-color: #ffffff8f;
+  color: #4f4b4b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.bicycle-price {
+  color: black;
+  font-weight: bold;
+}
+
+.pagination-page.active {
+  border-color: white;
+  background-color: #4e4e4e;
+  color: white;
+}
+
+.main-section {
+  padding: 30px 76px;
+}
+
+#category-sort-bar {
+  display: flex;
+  color: white;
+  justify-content: end;
+  align-items: center;
+  margin: 20px 0px;
+  gap: 10px;
+  font-weight: bold;
+}
+
+#category-sort-bar > select {
+  background-color: transparent;
+  color: white;
+  outline: 0px;
+  border: none;
+  font-size: 14px;
+}
+
+#category-sort-bar > select > option {
+  color: black;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+  outline: 0px;
+}
+
+.accordion {
+  border-bottom: 1px solid gray;
+  padding: 10px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-body{
+  height: 0px;
+  display: none;
+  transition: height 0.3s ease-in;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.accordion-body.show {
+  height: max-content;
+  display: block;
+}
+
+div.color-filter-option-container{
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 8px;
+}
+
+.color-filter-option{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+
+.color-filter-option.selected{
+  border: 3px solid white;
+  /* width: 35px;
+  height: 35px; */
+}
+
+div.list-filter-option-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.list-filter-option{
+  font-size: 24px;
+}
+
+.size-filter-option-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.size-filter-option{
+  text-align: center;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.size-filter-option.selected{
+  border: 1px solid white;
+  color: white;
+  background-color: #4e4e4e;
+}
