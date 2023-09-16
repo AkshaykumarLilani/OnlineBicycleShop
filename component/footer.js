@@ -1,7 +1,7 @@
 function footer() {
     return `   <section class="footer1">
     <div class="brand1">
-      <a href="#"><img src="./images/images.png" class="logo1" alt="" /></a>
+      <a href="#"><img src="/images/images.png" class="logo1" alt="" /></a>
       <div class="h5">
       </div>
   
@@ -77,15 +77,11 @@ function footer() {
   </section>
   
   <section class="copyright1">
-    <p><span>©</span> 2022 Rights Reserved, Taqwah</p>
-    <p>
-      <a href="#privacy">Privacy</a>
-      |
-      <a href="#terms">Terms & Conditions</a>
-      |
-      <a href="#security">Security & Privacy by Taqwah Digital</a>
-    </p>
-  </section>`
+    
+  </section>
+  
+  <p style="text-align: center; color: white;"><span>©</span> 2023 Specialized Bicycles Inc. Rights Reserved, Taqwah</p>
+  `
 }
 
 export default footer;

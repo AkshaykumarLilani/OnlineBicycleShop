@@ -14,3 +14,11 @@ body {
 .text-white {
     color: white;
 }
+
+.background-yellow {
+    background-color: var(--color-yellow);
+}
+
+.background-red {
+    background-color: var(--color-red);
+}
