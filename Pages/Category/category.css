@@ -179,6 +179,7 @@ div.list-filter-option-container{
 .size-filter-option-container{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .size-filter-option{
@@ -188,6 +189,7 @@ div.list-filter-option-container{
   font-weight: 600;
   padding: 5px;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 .size-filter-option.selected{
