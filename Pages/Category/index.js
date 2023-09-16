@@ -1,7 +1,7 @@
 import { categoryPageBicycleCard } from "../../components/categoryPageBicycleCard.js";
 import { baseUrl } from "../../constants.js";
 import { getSpinnerElement } from "../../components/spinner.js";
-import { addFiltersToUI } from "./generateFilters.js";
+import { addFiltersToUI, filtersObj, showCurrentFilters } from "./generateFilters.js";
 
 let category = "";
 
@@ -55,11 +55,8 @@ if (category) {
     }
 }
 
-const generateFilter = () => {
-
-}
-
 const addSpinner = (id, text) => {
+    removeNoProductsMessage();
     let filtersElSpinner = document.getElementById(id + "-spinner");
     if (!filtersElSpinner) {
         let filtersEl = document.getElementById(id);
@@ -80,11 +77,12 @@ const removeExistingProducts = () => {
     if (container) container.innerHTML = null;
 }
 
-const fetchBicycleData = async (page) => {
+export const fetchBicycleData = async (page, doNotRenderFilters) => {
     try {
         removeExistingProducts();
         removeExistingPagination();
-        addSpinner("category-filters", "Filters");
+        if (!doNotRenderFilters) addSpinner("category-filters", "Filters");
+        showAppliedFilters();
         addSpinner("category-products-and-pagination", "Products");
         let url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=12" + "&category=" + category;
 
@@ -92,31 +90,111 @@ const fetchBicycleData = async (page) => {
             url += `&_sort=${sortObj._sort}&_order=${sortObj._order}`;
         }
 
+        if (Array.isArray(filtersObj.filters)) {
+            filtersObj.filters.forEach((fo) => {
+                if (fo.field && fo.value) url += `&${fo.field}=${fo.value}`;
+            });
+        }
+
         const response = await fetch(url);
         const totalCount = Number(response.headers.get("X-Total-Count"));
         const json = await response.json();
         console.log({ totalCount, json });
 
-        appendDataToUI(json);
-        addPagination(totalCount);
+        if (json.length > 0) {
+            removeNoProductsMessage();
+            appendDataToUI(json);
+            addPagination(totalCount);
+        } else {
+            showNoProductsAvailable();
+        }
+        if (!doNotRenderFilters) addFilters();
+        showCurrentFilters()
     } catch (error) {
         console.error({ "fetchBicycleData Error": error });
+    }
+}
+
+const showAppliedFilters = () => {
+    let existingFilters = document.getElementById("current-filters");
+    console.log({ existingFilters, filtersObj });
+    existingFilters.innerHTML = null;
+    if (filtersObj.filters.length > 0) {
+        filtersObj.filters.forEach((f) => {
+            let div = document.createElement("div");
+            div.style.display = "flex";
+            div.style.gap = "10px";
+            div.style.alignItems = "center";
+
+            let button = document.createElement("button");
+            button.innerText = "x";
+            button.style.backgroundColor = "transparent";
+            button.style.color = "white";
+            button.style.border = "none";
+            button.style.fontSize = "24px";
+            button.style.cursor = "pointer";
+            button.style.fontWeight = "bold";
+            button.addEventListener("click", ()=>{
+                filtersObj.remove(f.field, f.value);
+                fetchBicycleData(1, true);
+            })
+            div.append(button);
+
+            let p = document.createElement("p");
+            let x = {filter: "", value: f.value};
+            if (f.field === "frame_colors"){
+                x.filter = "color";
+            } else {
+                x.filter = f.field;
+            }
+            p.innerText = `${x.filter} : ${f.value}`;
+            p.style.color = "white";
+            p.style.fontSize = "16px";
+            p.style.margin = "0px";
+            div.append(p);
+
+            existingFilters.append(div);
+        });
     }
 }
 
 const appendDataToUI = (data) => {
     let container = document.getElementById("category-products");
     container.innerHTML = null;
-    if (container) {
+    console.log({ data: data.length });
+    if (data.length > 0) {
         data.forEach((d) => {
             container.append(categoryPageBicycleCard(d));
         });
     }
 }
 
+const showNoProductsAvailable = () => {
+    removeSpinner("category-products-and-pagination");
+    let container = document.getElementById("category-products-and-pagination");
+    let ps = document.getElementsByClassName("no-products-message");
+    if (ps.length === 0) {
+        console.log("No Products Available", container);
+        container.style.minHeight = "30vh";
+        let p = document.createElement("p");
+        p.className = "no-products-message";
+        p.style.color = "white";
+        p.style.textAlign = "center";
+        p.innerText = "No Products Available for this filter";
+        container.append(p);
+    }
+}
+
+const removeNoProductsMessage = () => {
+    let ps = document.getElementsByClassName("no-products-message");
+    for (let p of ps) {
+        p.remove();
+    }
+}
+
 const removeExistingPagination = () => {
     let paginationWrapper = document.querySelector("#category-products-pagination-wrapper");
-    if (paginationWrapper){
+    if (paginationWrapper) {
         paginationWrapper.innerHTML = null;
     }
 }
@@ -140,6 +218,9 @@ const addPagination = (totalCount) => {
     }
     scrollUpToTop();
     removeSpinner("category-products-and-pagination");
+}
+
+const addFilters = () => {
     try {
         addFiltersToUI();
         removeSpinner("category-filters");
