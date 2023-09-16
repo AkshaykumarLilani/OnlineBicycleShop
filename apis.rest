@@ -1,1 +1,0 @@
-GET https://bicycle-shop-json-server.cyclic.app/bikes?_page=1&_limit=12&category=active&frame_colors=White&frame_colors=lightPink
