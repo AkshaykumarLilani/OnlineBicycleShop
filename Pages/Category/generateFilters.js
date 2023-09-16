@@ -1,21 +1,22 @@
-//import { baseUrl } from "../../constants.js";
-const baseUrl = "https://bicycle-shop-json-server.cyclic.app";
+import { baseUrl } from "../../constants.js";
+import { fetchBicycleData } from "./index.js";
+// const baseUrl = "https://bicycle-shop-json-server.cyclic.app";
 
-function getFiltersObj(){
+function Filters(){
   this.filters = [];
 }
 
-getFiltersObj.prototype.add = function(field, value){
+Filters.prototype.add = function(field, value){
   this.filters.push({
     field, value
   });
 };
 
-getFiltersObj.prototype.remove = function(field, value){
+Filters.prototype.remove = function(field, value){
   this.filters = this.filters.filter(f=>f.field===field&&f.value===value);
 }
 
-export let filtersObj = getFiltersObj();
+export const filtersObj = new Filters();
 
 const fetchFullData = async () => {
   try {
@@ -47,14 +48,14 @@ const generateFilters = (data) => {
 }
 
 const removeFilters = () => {
-  let filtersParent = document.getElementById("category-filters");
+  let filtersParent = document.getElementById("filters-to-choose");
   if (filtersParent){
     filtersParent.innerHTML = null;
   }
 }
 
 const appendToFilters = (ele) => {
-  let filtersParent = document.getElementById("category-filters");
+  let filtersParent = document.getElementById("filters-to-choose");
   if (filtersParent){
     filtersParent.appendChild(ele);
   }
@@ -220,6 +221,8 @@ function getColorFilters(id, data){
       thisColor.style.backgroundColor = d;
       thisColor.addEventListener("click", ()=>{
         filtersObj.add("frame_colors", d);
+        console.log({filtersObj});
+        fetchBicycleData(1, true);
       });
       parentColorsDiv.append(thisColor);
     });
@@ -230,6 +233,10 @@ function getColorFilters(id, data){
 
 function getSizeFilters(id, data){
 
+}
+
+export const showCurrentFilters = () => {
+  
 }
 
 export const addFiltersToUI = () => {
