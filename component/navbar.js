@@ -1,5 +1,5 @@
 function navbar() {
-    return `<div class="left-section">
+    return `    <div class="left-section">
     <a href="#"><img src="./images/images.png" class="logo" alt="" /></a>
     <ul id="navbar">
         <li><a class="#" href="/Pages/Category/index.html?category=mountain">MOUNTAIN</a></li>
@@ -23,8 +23,10 @@ function navbar() {
     <!-- <span style="color: white; margin-right: 38px;">7827053118</span> -->
     <div class="icons">
         <a href="cart.html">
-          <i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; margin-right: 50px;"></i></a>
+        <i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; margin-right: 38px;"></i></a>
+       <a href="signup.html">
         <i class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
+       </a>
         <i class="fa-regular fa-heart" style="color: #eeeeee;"></i>
     </div>
 </div>`

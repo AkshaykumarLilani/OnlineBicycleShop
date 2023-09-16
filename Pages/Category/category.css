@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 15px;
-  cursor: pointer;
 }
 
 .bicycle-colors {
@@ -195,4 +194,12 @@ div.list-filter-option-container{
   border: 1px solid white;
   color: white;
   background-color: #4e4e4e;
+}
+
+.add-to-cart-button{
+  color: white;
+  font-weight: bold;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 8px;
 }
