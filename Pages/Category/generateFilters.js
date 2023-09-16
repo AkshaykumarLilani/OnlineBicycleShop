@@ -2,46 +2,46 @@ import { baseUrl } from "../../constants.js";
 import { fetchBicycleData } from "./index.js";
 // const baseUrl = "https://bicycle-shop-json-server.cyclic.app";
 
-function Filters(){
+function Filters() {
   this.filters = [];
 }
 
-Filters.prototype.add = function(field, value){
+Filters.prototype.add = function (field, value) {
   this.filters.push({
     field, value
   });
 };
 
-Filters.prototype.remove = function(field, value){
-  this.filters = this.filters.filter(f=>f.field===field&&f.value===value);
+Filters.prototype.remove = function (field, value) {
+  this.filters = this.filters.filter(f => f.field !== field && f.value !== value);
 }
 
 export const filtersObj = new Filters();
 
 const fetchFullData = async () => {
   try {
-    const response = await fetch(baseUrl+"/bikes");
+    const response = await fetch(baseUrl + "/bikes");
     const json = await response.json();
     generateFilters(json);
-  } catch (err){
-    console.error({"fetchFullData Error": err});
+  } catch (err) {
+    console.error({ "fetchFullData Error": err });
   }
 }
 
 const generateFilters = (data) => {
   removeFilters();
   let uFCs = findUniqueValues(data, "frame_colors");
-  console.log({uFCs});
+  console.log({ uFCs });
   let uFCsAccordion = getAccordion("Colors", "color-filters", "colors", uFCs);
   appendToFilters(uFCsAccordion);
 
   let modelYears = findUniqueValues(data, "year");
-  console.log({modelYears});
+  console.log({ modelYears });
   let modelYearsAccordion = getAccordion("Model Year", "model-year-filters", "list", modelYears);
   appendToFilters(modelYearsAccordion);
-  
+
   let uniqueSizes = findUniqueValues(data, "size");
-  console.log({uniqueSizes});
+  console.log({ uniqueSizes });
   let uniqueSizesAccordion = getAccordion("Size", "size-filters", "size", uniqueSizes);
   appendToFilters(uniqueSizesAccordion);
 
@@ -49,33 +49,33 @@ const generateFilters = (data) => {
 
 const removeFilters = () => {
   let filtersParent = document.getElementById("filters-to-choose");
-  if (filtersParent){
+  if (filtersParent) {
     filtersParent.innerHTML = null;
   }
 }
 
 const appendToFilters = (ele) => {
   let filtersParent = document.getElementById("filters-to-choose");
-  if (filtersParent){
+  if (filtersParent) {
     filtersParent.appendChild(ele);
   }
 }
 
 const findUniqueValues = (data, key) => {
   let uvs = [];
-  
-  data.forEach(d=>{
+
+  data.forEach(d => {
     let thisKeyValue = d[key];
     //console.log(thisKeyValue);
-    if (thisKeyValue){
-      if (Array.isArray(thisKeyValue)){
-        thisKeyValue.forEach(tkv=>{
-          if(!uvs.includes(tkv)){
+    if (thisKeyValue) {
+      if (Array.isArray(thisKeyValue)) {
+        thisKeyValue.forEach(tkv => {
+          if (!uvs.includes(tkv)) {
             uvs.push(tkv);
           }
         })
       } else {
-        if (!uvs.includes(thisKeyValue)){
+        if (!uvs.includes(thisKeyValue)) {
           uvs.push(thisKeyValue);
         }
       }
@@ -87,7 +87,7 @@ const findUniqueValues = (data, key) => {
 const getAccordion = (title, id, dataType, data) => {
   let a = document.createElement("div");
   a.classList.add("accordion");
-  
+
   // Accordion Header
   let ah = getAccordionHeader(title, id);
 
@@ -101,7 +101,7 @@ const getAccordion = (title, id, dataType, data) => {
 const getAccordionHeader = (title, id) => {
   let ah = document.createElement("div");
   ah.classList.add("accordion-header");
-  
+
   let h4 = document.createElement("h4");
   h4.innerText = title;
   h4.classList.add("text-white");
@@ -115,14 +115,14 @@ const getAccordionHeader = (title, id) => {
   show.style.cursor = "pointer";
   show.id = "accordion-body-show-" + id;
   show.style.lineHeight = "40px";
-  show.addEventListener("click", ()=>{
-    let thisBody = document.querySelector(".accordion-body[data-id="+id+"]");
+  show.addEventListener("click", () => {
+    let thisBody = document.querySelector(".accordion-body[data-id=" + id + "]");
     console.log(thisBody);
     thisBody.classList.add("show");
     let s = document.getElementById("accordion-body-show-" + id);
     let h = document.getElementById("accordion-body-hide-" + id);
 
-    if (s && s){
+    if (s && s) {
       s.style.display = "none";
       h.style.display = "block";
     }
@@ -138,15 +138,15 @@ const getAccordionHeader = (title, id) => {
   hide.style.display = "none";
   hide.style.lineHeight = "40px";
   hide.id = "accordion-body-hide-" + id;
-  hide.addEventListener("click", ()=>{
-    let thisBody = document.querySelector(".accordion-body[data-id="+id+"]");
+  hide.addEventListener("click", () => {
+    let thisBody = document.querySelector(".accordion-body[data-id=" + id + "]");
     console.log(thisBody);
     thisBody.classList.remove("show");
 
     let s = document.getElementById("accordion-body-show-" + id);
     let h = document.getElementById("accordion-body-hide-" + id);
 
-    if (s && s){
+    if (s && s) {
       s.style.display = "block";
       h.style.display = "none";
     }
@@ -163,10 +163,10 @@ const getAccordionBody = (id, dataType, data) => {
 
   let accordionFilter = null;
 
-  switch(dataType){
+  switch (dataType) {
     case "list":
       accordionFilter = getListFilters(id, data);
-      console.log({accordionFilter});
+      console.log({ accordionFilter });
       break;
     case "colors":
       accordionFilter = getColorFilters(id, data);
@@ -183,13 +183,13 @@ const getAccordionBody = (id, dataType, data) => {
   return ab;
 }
 
-function getListFilters(id, data){
-  console.log({list: data});
+function getListFilters(id, data) {
+  console.log({ list: data });
 
   let parentListDiv = document.createElement("div");
   parentListDiv.classList.add("list-filter-option-container")
 
-  if (Array.isArray(data)){
+  if (Array.isArray(data)) {
     data.forEach(d => {
       let thisList = document.createElement("div");
       thisList.classList.add("list-filter-option");
@@ -201,27 +201,27 @@ function getListFilters(id, data){
       parentListDiv.append(thisList);
     });
   }
-  console.log({parentListDiv});
+  console.log({ parentListDiv });
   return parentListDiv;
 }
 
-function getColorFilters(id, data){
-  console.log({colors: data});
+function getColorFilters(id, data) {
+  console.log({ colors: data });
 
   let selectedBorder = "";
   let nonSelectedBorder = "1px solid gray";
   let parentColorsDiv = document.createElement("div");
   parentColorsDiv.classList.add("color-filter-option-container")
 
-  if (Array.isArray(data)){
+  if (Array.isArray(data)) {
     data.forEach(d => {
       let thisColor = document.createElement("div");
       thisColor.classList.add("color-filter-option");
       thisColor.style.border = nonSelectedBorder;
       thisColor.style.backgroundColor = d;
-      thisColor.addEventListener("click", ()=>{
+      thisColor.addEventListener("click", () => {
         filtersObj.add("frame_colors", d);
-        console.log({filtersObj});
+        console.log({ filtersObj });
         fetchBicycleData(1, true);
       });
       parentColorsDiv.append(thisColor);
@@ -231,12 +231,12 @@ function getColorFilters(id, data){
   return parentColorsDiv;
 }
 
-function getSizeFilters(id, data){
+function getSizeFilters(id, data) {
 
 }
 
 export const showCurrentFilters = () => {
-  
+
 }
 
 export const addFiltersToUI = () => {
