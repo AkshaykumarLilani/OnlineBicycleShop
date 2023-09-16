@@ -1,0 +1,1 @@
+export const baseUrl = "https://bicycle-shop-json-server.cyclic.app";
