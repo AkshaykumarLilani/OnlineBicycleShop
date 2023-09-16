@@ -1,80 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SignUP</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link rel="stylesheet" href="./styles/navbar.css">
-  <link rel="stylesheet" href="./styles/footer.css">
-  <link rel="stylesheet" href="./styles/signup.css">
-  <link rel="stylesheet" href="./styles/login.css">
-
-
-</head>
-
-<body>
-  <section id="header1">
-   
-  </section>
-  <section id="top1">
-   
-  </section>
-
-
-<section id="login">
-  <div class="container">
-    <form id="register_form">
-      <h2>Login</h2>
-      <div class="line"></div>
-        <div id="error-message" class="error-message"></div> <!-- Error message placeholder -->
-        <div>
-            <label>Email</label>
-            <input required type="email" id="login_email" placeholder="Enter Email id" />
-            <label>Password</label>
-            <input required type="password" id="login_password" placeholder="Enter password" />
-            <button type="button" id="login_btn">Login</button>
-        </div>
-        <div style="margin-top: 10px;">
-            <button id="logout-btn" style="display: none">logout</button>
-        </div>
-        <div class="signup-link">
-            <a href="./signUp.html">Create New Account</a>
-        </div>
-    </form>
-</div>
-</section>
-
-<footer id="mainFooter">
-
-   
-  </footer>
-</body>
-
-</html>
-
-<script src="./script/signup.js"></script>
-
-<script type="module">
-  import footer1 from "./component/footer.js"
-  let footerContainer = document.getElementById('mainFooter');
-  footerContainer.innerHTML = footer1();
-
-  import header1 from "./component/header.js"
-  let headerContainer = document.getElementById("header1");
-  headerContainer.innerHTML = header1();
-
-  import topSection from "./component/top.js"
-  let topContainer = document.getElementById("top1");
-  topContainer.innerHTML = topSection();
-
-  
-
-</script>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
 
@@ -152,10 +76,6 @@
         console.log(error.message);
       });
   });
-
-</script>
-
-
 
 
 

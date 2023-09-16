@@ -1,17 +1,11 @@
-function toggleSignup() {
-  document.getElementById("login-toggle").style.backgroundColor = "#fff";
-  document.getElementById("login-toggle").style.color = "#222";
-  document.getElementById("signup-toggle").style.backgroundColor = "#EB001B";
-  document.getElementById("signup-toggle").style.color = "#fff";
-  document.getElementById("login-form").style.display = "none";
-  document.getElementById("signup-form").style.display = "block";
-}
+const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container");
 
-function toggleLogin() {
-  document.getElementById("login-toggle").style.backgroundColor = "#C68409";
-  document.getElementById("login-toggle").style.color = "#fff";
-  document.getElementById("signup-toggle").style.backgroundColor = "#fff";
-  document.getElementById("signup-toggle").style.color = "#222";
-  document.getElementById("signup-form").style.display = "none";
-  document.getElementById("login-form").style.display = "block";
-}
+sign_up_btn.addEventListener("click", () => {
+  container.classList.add("sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
+});
