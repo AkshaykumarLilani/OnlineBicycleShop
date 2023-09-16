@@ -158,6 +158,13 @@ div.color-filter-option-container{
   height: 30px;
   border-radius: 50%;
   cursor: pointer;
+  border: 1px solid gray;
+}
+
+.color-filter-option.selected{
+  border: 3px solid white;
+  /* width: 35px;
+  height: 35px; */
 }
 
 div.list-filter-option-container{
@@ -168,4 +175,24 @@ div.list-filter-option-container{
 
 .list-filter-option{
   font-size: 24px;
+}
+
+.size-filter-option-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.size-filter-option{
+  text-align: center;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.size-filter-option.selected{
+  border: 1px solid white;
+  color: white;
+  background-color: #4e4e4e;
 }
