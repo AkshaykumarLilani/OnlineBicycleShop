@@ -1,7 +1,7 @@
 import { categoryPageBicycleCard } from "../../components/categoryPageBicycleCard.js";
 import { baseUrl } from "../../constants.js";
 import { getSpinnerElement } from "../../components/spinner.js";
-import { addFiltersToUI } from "./generateFilters.js";
+import { addFiltersToUI, filtersObj } from "./generateFilters.js";
 
 let category = "";
 
@@ -90,6 +90,12 @@ const fetchBicycleData = async (page) => {
 
         if (sortObj._sort) {
             url += `&_sort=${sortObj._sort}&_order=${sortObj._order}`;
+        }
+        
+        if (Array.isArrray(filtersObj.filters)){
+          filtersObj.filters.forEach((fo)=>{
+            if(fo.field && fo.value) url += `&${fo.field}=${fo.value}`;
+          });
         }
 
         const response = await fetch(url);

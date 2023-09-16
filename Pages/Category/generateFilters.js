@@ -1,6 +1,22 @@
 //import { baseUrl } from "../../constants.js";
 const baseUrl = "https://bicycle-shop-json-server.cyclic.app";
 
+function getFiltersObj(){
+  this.filters = [];
+}
+
+getFiltersObj.prototype.add = function(field, value){
+  this.filters.push({
+    field, value
+  });
+};
+
+getFiltersObj.prototype.remove = function(field, value){
+  this.filters = this.filters.filter(f=>f.field===field&&f.value===value);
+}
+
+export let filtersObj = getFiltersObj();
+
 const fetchFullData = async () => {
   try {
     const response = await fetch(baseUrl+"/bikes");
@@ -202,6 +218,9 @@ function getColorFilters(id, data){
       thisColor.classList.add("color-filter-option");
       thisColor.style.border = nonSelectedBorder;
       thisColor.style.backgroundColor = d;
+      thisColor.addEventListener("click", ()=>{
+        filtersObj.add("frame_colors", d);
+      });
       parentColorsDiv.append(thisColor);
     });
   }
