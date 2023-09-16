@@ -13,7 +13,17 @@ Filters.prototype.add = function (field, value) {
 };
 
 Filters.prototype.remove = function (field, value) {
-  this.filters = this.filters.filter(f => f.field !== field && f.value !== value);
+  console.log(this.filters, field, value);
+  this.filters = this.filters.filter(f => !(f.field === field && f.value === value));
+  console.log(this.filters);
+}
+
+Filters.prototype.contains = function (field, value) {
+  let filtered = this.filters.filter(f => f.field === field && f.value === value);
+  if (filtered.length > 0){
+    return true;
+  }
+  return false;
 }
 
 export const filtersObj = new Filters();
@@ -70,6 +80,7 @@ const findUniqueValues = (data, key) => {
     if (thisKeyValue) {
       if (Array.isArray(thisKeyValue)) {
         thisKeyValue.forEach(tkv => {
+          tkv = tkv.toLowerCase();
           if (!uvs.includes(tkv)) {
             uvs.push(tkv);
           }
@@ -194,10 +205,19 @@ function getListFilters(id, data) {
       let thisList = document.createElement("div");
       thisList.classList.add("list-filter-option");
       thisList.innerHTML = `
-      <input type="checkbox" id="${d}" name="${d}" />
-      <label for="${d}">${d}</label>
+        <input type="checkbox" id="${d}" name="${d}" />
+        <label for="${d}">${d}</label>
       `;
       thisList.style.color = "white";
+      thisList.addEventListener("change", (e)=>{
+        if(e.target.checked){
+          filtersObj.add("year", d);
+        } else {
+          filtersObj.remove("year", d);
+        }
+        fetchBicycleData(1, true);
+        console.log("thisList ", id, e.target.checked);
+      })
       parentListDiv.append(thisList);
     });
   }
@@ -208,8 +228,6 @@ function getListFilters(id, data) {
 function getColorFilters(id, data) {
   console.log({ colors: data });
 
-  let selectedBorder = "";
-  let nonSelectedBorder = "1px solid gray";
   let parentColorsDiv = document.createElement("div");
   parentColorsDiv.classList.add("color-filter-option-container")
 
@@ -217,10 +235,15 @@ function getColorFilters(id, data) {
     data.forEach(d => {
       let thisColor = document.createElement("div");
       thisColor.classList.add("color-filter-option");
-      thisColor.style.border = nonSelectedBorder;
       thisColor.style.backgroundColor = d;
-      thisColor.addEventListener("click", () => {
-        filtersObj.add("frame_colors", d);
+      thisColor.addEventListener("click", (event) => {
+        if (filtersObj.contains("frame_colors", d)){
+          filtersObj.remove("frame_colors", d);
+          event.target.classList.remove("selected");
+        } else {
+          filtersObj.add("frame_colors", d);
+          event.target.classList.add("selected");
+        }
         console.log({ filtersObj });
         fetchBicycleData(1, true);
       });
@@ -232,6 +255,38 @@ function getColorFilters(id, data) {
 }
 
 function getSizeFilters(id, data) {
+
+  console.log({ sizes: data });
+
+  let parentSizesDiv = document.createElement("div");
+  parentSizesDiv.classList.add("size-filter-option-container")
+
+  if (Array.isArray(data)) {
+    data.forEach(d => {
+      let thisSize = document.createElement("div");
+      thisSize.classList.add("size-filter-option");
+      if (filtersObj.contains("size", d)){
+        thisSize.classList.add("selected");
+      } else {
+        thisSize.classList.remove("selected");
+      }
+      thisSize.innerText = d;
+      thisSize.addEventListener("click", (event) => {
+        console.log({ filtersObj });
+        if (filtersObj.contains("size", d)){
+          filtersObj.remove("size", d);
+          event.target.classList.remove("selected");
+        } else {
+          filtersObj.add("size", d);
+          event.target.classList.add("selected");
+        }
+        fetchBicycleData(1, true);
+      });
+      parentSizesDiv.append(thisSize);
+    });
+  }
+
+  return parentSizesDiv;
 
 }
 

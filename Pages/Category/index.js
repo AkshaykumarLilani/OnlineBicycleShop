@@ -92,7 +92,7 @@ export const fetchBicycleData = async (page, doNotRenderFilters) => {
 
         if (Array.isArray(filtersObj.filters)) {
             filtersObj.filters.forEach((fo) => {
-                if (fo.field && fo.value) url += `&${fo.field}=${fo.value}`;
+                if (fo.field && fo.value) url += `&${fo.field}_like=${fo.value}`;
             });
         }
 
@@ -136,6 +136,10 @@ const showAppliedFilters = () => {
             button.style.fontWeight = "bold";
             button.addEventListener("click", ()=>{
                 filtersObj.remove(f.field, f.value);
+                if(f.field === "year"){
+                    let checkbox = document.getElementById(f.value);
+                    checkbox.checked = false;
+                }
                 fetchBicycleData(1, true);
             })
             div.append(button);
