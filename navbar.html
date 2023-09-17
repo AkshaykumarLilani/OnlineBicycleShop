@@ -1,32 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
 
-    <section id="header">
-        <div class="left-section">
-            <a href="#"><img src="./images/images.png" class="logo" alt="" /></a>
-            <ul id="navbar">
-                <li><a class="#" href="#">MOUNTAIN</a></li>
-                <li><a href="#">ROAD</a></li>
-                <li><a href="#">ACTIVE</a></li>
-                <li><a href="#">ELECTRIC</a></li>
-                <li><a href="#">KIDS</a></li>
-                
-            </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Include Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" /> -->
+  <link rel="stylesheet" href="./navbar.css">
+  <link rel="stylesheet" href="./footer.css">
+</head>
+
+<body>
+  <section id="header">
+    <div class="container"> <!-- Add a container for Bootstrap -->
+      <div class="row">
+        <div class="col-md-6 col-sm-12"> <!-- Use Bootstrap's grid system -->
+          <a href="#"><img src="./images/images.png" class="logo" alt="" /></a>
+          <ul id="navbar">
+            <li><a class="#" href="#">MOUNTAIN</a></li>
+            <li><a href="#">ROAD</a></li>
+            <li><a href="#">ACTIVE</a></li>
+            <li><a href="#">ELECTRIC</a></li>
+            <li><a href="#">KIDS</a></li>
+          </ul>
         </div>
-
-        <div class="form">
+        <div class="col-md-6 col-sm-12">
+          <div class="form">
             <div class="search-bar">
-                <input type="text" placeholder="Search" />
-                <i class="fas fa-search search-icon"></i>
+              <input type="text" placeholder="Search" />
+              <i class="fas fa-search search-icon"></i>
             </div>
-        </div>
-
-        <div class="right-section">
-            <!-- <i class="fa-solid fa-phone" style="color: #ededed;  margin-right: 9px"></i> -->
-            <!-- <span style="color: white; margin-right: 38px;">7827053118</span> -->
+          </div>
+          <div class="right-section">
             <div class="icons">
-                <a href="cart.html"><i class="fa-solid fa-cart-shopping fa-beat" style="color: #fafcff; margin-right: 50px;"></i></a>
-                <i class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
-                <i class="fa-regular fa-heart" style="color: #eeeeee;"></i>
+              <a href="cart.html"><i class="fa-solid fa-cart-shopping fa-beat"
+                  style="color: #fafcff; margin-right: 50px;"></i></a>
+              <i class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
+              <i class="fa-regular fa-heart" style="color: #eeeeee;"></i>
             </div>
+          </div>
         </div>
-    </section>
-    
+      </div>
+    </div>
+  </section>
+
+  <!-- Include Bootstrap JS (optional) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
