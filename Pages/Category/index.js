@@ -2,7 +2,7 @@ import { categoryPageBicycleCard } from "../../components/categoryPageBicycleCar
 import { baseUrl } from "../../constants.js";
 import { getSpinnerElement } from "../../components/spinner.js";
 import { addFiltersToUI, filtersObj, showCurrentFilters } from "./generateFilters.js";
-import { generateAndDisplayBreadCrumb } from "/script/breadcrumb.js";
+import { getSearchParams } from "../../script/getSearchParams.js";
 
 let category = "";
 
@@ -12,27 +12,6 @@ let perPageLimit = 12;
 let sortObj = {
     _sort: "",
     _order: "asc",
-}
-
-export const getSearchParams = () => {
-    let obj = {};
-
-    if (window.location.search) {
-        let search = window.location.search;
-        if (search.includes("?")) {
-            search = search.replaceAll("?", "");
-            search = search.split("&");
-            if (search.length > 0) {
-                search.forEach((s) => {
-                    let keyValue = s.split("=");
-                    if (keyValue.length === 2) {
-                        obj[keyValue[0]] = keyValue[1];
-                    }
-                });
-            }
-        }
-    }
-    return obj;
 }
 
 const searchParams = getSearchParams();
@@ -285,5 +264,3 @@ const sortEvent = (event) => {
 let sortSelect = document.getElementById("products-sort-by");
 console.log(sortSelect)
 sortSelect.addEventListener("change", sortEvent);
-
-generateAndDisplayBreadCrumb();
