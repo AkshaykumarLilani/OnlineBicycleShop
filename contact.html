@@ -152,6 +152,70 @@
         button[type="submit"]:hover {
             background-color: #8a4b2a;
         }
+
+
+        @media (max-width: 768px) {
+    .banner {
+        height: 20vh;
+    }
+
+    .banner h2 {
+        font-size: 50px;
+    }
+
+    .content {
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    .left-box,
+    .right-box {
+        flex-basis: 100%;
+        margin: 0;
+    }
+
+    .left-box h3 {
+        font-size: 20px;
+    }
+
+    .left-box address {
+        font-size: 16px;
+    }
+
+    .right-box {
+        margin-top: 20px;
+    }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 480px) {
+    .banner h2 {
+        font-size: 36px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .left-box h3 {
+        font-size: 18px;
+    }
+
+    address {
+        font-size: 14px;
+    }
+
+    .right-box {
+        margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        width: 100%;
+    }
+}
     </style>
 
 </head>

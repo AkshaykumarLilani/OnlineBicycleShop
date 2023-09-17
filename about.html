@@ -80,6 +80,40 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         
         }
+
+        @media (max-width: 768px) {
+    .banner {
+        height: 20vh;
+    }
+
+    .banner h2 {
+        font-size: 50px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .left-box,
+    .right-box {
+        flex-basis: 100%;
+    }
+
+    .right-box {
+        margin-top: 20px;
+    }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 480px) {
+    .banner h2 {
+        font-size: 36px;
+    }
+
+    .right-box {
+        padding: 10px;
+    }
+}
     </style>
 
 </head>
