@@ -4,13 +4,22 @@ export const categoryPageBicycleCard = function (data) {
 
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("bicycle-image-container");
+    imgContainer.classList.add("cursor-pointer");
     let img = document.createElement("img");
     img.src = data.large_img;
     img.classList.add("w-100");
     imgContainer.append(img);
+    imgContainer.addEventListener("click", () => {
+        localStorage.setItem("item-page-data", JSON.stringify(data));
+        window.location.assign("/Pages/ItemPage/index.html");
+    });
     parentDiv.append(imgContainer);
 
     let colorsContainer = document.createElement("div");
+    colorsContainer.addEventListener("click", () => {
+        localStorage.setItem("item-page-data", JSON.stringify(data));
+        window.location.assign("/Pages/ItemPage/index.html");
+    });
     colorsContainer.classList.add("bicycle-colors-container");
     if (data.frame_colors && Array.isArray(data.frame_colors) && data.frame_colors.length > 0) {
         data.frame_colors.forEach(d => {
@@ -24,6 +33,11 @@ export const categoryPageBicycleCard = function (data) {
 
     let title = document.createElement("h3");
     title.innerText = data.title;
+    title.classList.add("cursor-pointer");
+    title.addEventListener("click", () => {
+        localStorage.setItem("item-page-data", JSON.stringify(data));
+        window.location.assign("/Pages/ItemPage/index.html");
+    });
     parentDiv.append(title);
 
     let price = document.createElement("p");
@@ -31,9 +45,80 @@ export const categoryPageBicycleCard = function (data) {
     price.innerText = "₹ " + data.price;
     parentDiv.append(price);
 
+    let addToCart = document.createElement("button");
+    addToCart.classList.add("add-to-cart-button");
+    if (isInCart(data)) {
+        addToCart.innerText = "REMOVE FROM CART";
+        addToCart.classList.add("background-red");
+        addToCart.classList.remove("background-yellow");
+    } else {
+        addToCart.innerText = "ADD TO CART";
+        addToCart.classList.add("background-yellow");
+        addToCart.classList.remove("background-red");
+    }
+    addToCart.classList.add("cursor-pointer");
+    addToCart.setAttribute("data-id", data.id);
+    addToCart.addEventListener("click", (event) => {
+        if (event.target.innerText === "ADD TO CART") {
+            pushToCart(data);
+            let thisB = document.querySelector("button[data-id='" + data.id + "']");
+            if (thisB) {
+                thisB.innerText = "REMOVE FROM CART";
+                thisB.classList.remove("background-yellow");
+                thisB.classList.add("background-red");
+            }
+        } else if (event.target.innerText === "REMOVE FROM CART"){
+            removeFromCart(data);
+            let thisB = document.querySelector("button[data-id='" + data.id + "']");
+            if (thisB) {
+                thisB.innerText = "ADD TO CART";
+                thisB.classList.remove("background-red");
+                thisB.classList.add("background-yellow");
+            }
+        }
+    });
+    parentDiv.append(addToCart);
+
     // let actionButtons = document.createElement("div");
 
     return parentDiv;
+}
+
+const isInCart = (data) => {
+    let cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+        cartItems = JSON.parse(cartItems);
+    }
+    if (Array.isArray(cartItems) && cartItems.length > 0) {
+        let filtered = cartItems.filter(f => f.id === data.id);
+        if (filtered.length > 0) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+const pushToCart = (data) => {
+    let cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+        cartItems = JSON.parse(cartItems);
+        cartItems.push(data);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+        localStorage.setItem("cartItems", JSON.stringify([data]));
+    }
+}
+
+const removeFromCart = (data) => {
+    let cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+        cartItems = JSON.parse(cartItems);
+        cartItems = cartItems.filter((d)=> !(d.id === data.id));
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+        // this should never happen
+    }
 }
 
 /*

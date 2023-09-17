@@ -8,11 +8,17 @@
 body {
     font-family: 'Raleway', sans-serif;
     margin: 0px;
-    margin-left: 30px;
-    margin-right: 30px;
     background-color: #262626;
 }
 
 .text-white {
     color: white;
+}
+
+.background-yellow {
+    background-color: var(--color-yellow);
+}
+
+.background-red {
+    background-color: var(--color-red);
 }

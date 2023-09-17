@@ -21,6 +21,9 @@ const slideLeft = document.querySelector("#slide-left");
 const slideRight = document.querySelector("#slide-right");
 const sliderButtons = document.querySelector("#slider-buttons");
 const addToCartButton = document.querySelector("#order-buttons > button");
+const addToWishlistButton = document.querySelector(
+  "#order-buttons > button:nth-child(3)"
+);
 
 //?function to show characterstics of bike
 function showCharacterstics(bike) {
@@ -187,6 +190,12 @@ addToCartButton.addEventListener("click", (event) => {
   cartItems.push(bike);
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
   window.location.href = "../../../cart.html";
+});
+//?function to add to wishlist
+addToWishlistButton.addEventListener("click", (event) => {
+  const wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+  wishlistItems.push(bike);
+  localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
 });
 
 //!function calls

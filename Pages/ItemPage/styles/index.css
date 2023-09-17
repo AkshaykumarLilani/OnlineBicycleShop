@@ -15,6 +15,7 @@
 }
 #item-name {
   margin-bottom: 0;
+  color: white;
 }
 #color-and-size {
   display: flex;
@@ -141,7 +142,7 @@
 .arrow {
   font-size: 3em;
   font-weight: bolder;
-  margin-top: 10%;
+  margin-top: 20%;
 }
 .arrow:hover {
   border: none;

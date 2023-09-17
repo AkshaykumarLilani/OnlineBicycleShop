@@ -2,11 +2,15 @@
 <html lang="en">
   <head>
     <title>Item Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="../../styles/navbar.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
     <link href="../../common.css" rel="stylesheet" />
     <link href="./styles/index.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="navbar"></div>
+    <div id="header1"></div>
+    <div id="top1"></div>
     <div id="container">
       <div id="left-container">
         <div id="item-image-slider" class="card">
@@ -90,7 +94,20 @@
         </div>
       </div>
     </div>
-    <div id="footer"></div>
+    <div id="mainFooter"></div>
   </body>
   <script src="./scripts/index.js"></script>
+  <script type="module">
+    import footer1 from "../../component/footer.js"
+    let footerContainer = document.getElementById('mainFooter');
+    footerContainer.innerHTML = footer1();
+  
+    import header1 from "../../component/header.js"
+    let headerContainer = document.getElementById("header1");
+    headerContainer.innerHTML = header1();
+  
+    import topSection from "../../component/top.js"
+    let topContainer = document.getElementById("top1");
+    topContainer.innerHTML = topSection();
+  </script>
 </html>

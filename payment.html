@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/signup.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/checkout.css">
+    <link rel="stylesheet" href="./styles/payment.css">
+
+
+</head>
+
+<body>
+    <section id="header1">
+       
+    </section>
+    <section id="top1">
+      
+    </section>
+
+    <section class="payment">
+    <div style="display: flex; justify-content: space-between;">
+        <!-- Delivery Address Box -->
+        <div id="deliveryAddressBox">
+            <h2>Delivery Address</h2>
+            <div class="line"></div>
+            <!-- The details will be populated here -->
+        </div>
+
+        <!-- Razor pay section -->
+        <div style="flex: 1; padding: 20px;">
+            <div id="payDiv">
+                <button id="rzp-button1">Click For Payment</button>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="mainFooter">
+
+      
+    </footer>
+</body>
+
+</html>
+
+<script src="./script/checkout.js"></script>
+<script src="./script/payment.js"></script>
+
+
+<script type="module">
+    import footer1 from "./component/footer.js"
+    let footerContainer = document.getElementById('mainFooter');
+    footerContainer.innerHTML = footer1();
+  
+    import header1 from "./component/header.js"
+    let headerContainer = document.getElementById("header1");
+    headerContainer.innerHTML = header1();
+  
+    import topSection from "./component/top.js"
+    let topContainer = document.getElementById("top1");
+    topContainer.innerHTML = topSection();
+  
+    
+  
+  </script>

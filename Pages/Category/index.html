@@ -11,39 +11,90 @@
     <link rel="stylesheet" href="../../utilities.css">
     <link rel="stylesheet" href="./category.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
 </head>
 
 <body>
-    <div class="breadcrumb">
 
-    </div>
+    <section id="header1">
 
-    <h1 id="category-title" class="text-white">
-        Mountain
-    </h1>
+    </section>
+    <section id="top1">
 
-    <div id="category-products-container">
-        <div id="category-sort-bar">
+    </section>
+
+    <section class="main-section">
+        <div class="breadcrumb">
 
         </div>
-        <div id="category-filters-products-container">
-            <div id="category-filters">
-                
+
+        <h1 id="category-title" class="text-white">
+            Mountain
+        </h1>
+
+        <div id="category-products-container">
+            <div id="category-sort-bar">
+                SORT BY:
+                <select name="sort-by" id="products-sort-by">
+                    <option value="select">select</option>
+                    <option value="phl">Price (High-Low)</option>
+                    <option value="plh">Price (Low-High)</option>
+                    <option value="tasc">Title (Ascending)</option>
+                    <option value="tdsc">Title (Descending)</option>
+                </select>
             </div>
-            <div id="category-products-and-pagination">
-                <div id="category-products">
-                
+            <div id="category-filters-products-container">
+                <div id="category-filters">
+                    <div id="current-filters">
+
+                    </div>
+                    <div id="filters-to-choose">
+
+                    </div>
                 </div>
-                <div id="category-products-pagination-wrapper">
-                    
+                <div id="category-products-and-pagination">
+                    <div id="category-products">
+
+                    </div>
+                    <div id="category-products-pagination-wrapper">
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <footer id="mainFooter">
+
+
+    </footer>
+
+
+    <script type="module">
+        import footer1 from "../../component/footer.js"
+        let footerContainer = document.getElementById('mainFooter');
+        footerContainer.innerHTML = footer1();
+
+        import header1 from "../../component/header.js"
+        let headerContainer = document.getElementById("header1");
+        headerContainer.innerHTML = header1();
+
+        import topSection from "../../component/top.js"
+        let topContainer = document.getElementById("top1");
+        topContainer.innerHTML = topSection();
+
+
+
+    </script>
 </body>
+
 </html>
 <script src="./index.js" type="module"></script>

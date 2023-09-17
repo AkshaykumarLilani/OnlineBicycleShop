@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+
     <script src="https://kit.fontawesome.com/0b1bcdd578.js" crossorigin="anonymous"></script>
+
     <!-- Include Bootstrap CSS and JavaScript -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,12 +16,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- copy the code of nav and footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./r_homepage/homepage.css">
     <script src="./r_homepage/homepage.js"></script>
 </head>
 
 <body>
-    <div id="navbar_import"></div>
+    <section id="header1">
+
+    </section>
+    <section id="top1">
+
+    </section>
+
     <div id="home" class="container">
         <div class="row">
             <div class="col-md-12">
@@ -40,7 +53,8 @@
                         <a href="./Pages/Catalogue/index.html"><img src="./r_homepage/images/img-8.png" alt=""></a>
                         <a href="./Pages/Catalogue/index.html"><img src="./r_homepage/images/img-9.png" alt=""></a>
                         <a href="./Pages/Catalogue/index.html"><img src="./r_homepage/images/img-10.png" alt=""></a>
-                        <a href="./Pages/Catalogue/index.html"><button class="btn-a btn btn-primary">CATALOGUE</button></a>
+                        <a href="./Pages/Catalogue/index.html"><button
+                                class="btn-a btn btn-primary">CATALOGUE</button></a>
                     </div>
                 </div>
             </div>
@@ -97,7 +111,27 @@
         </div>
     </div>
 
-    <div id="footer_import"></div>
+    <footer id="mainFooter">
+
+    </footer>
+    
+    <script src="r_homepage\homepage.js"> </script>
+    <script type="module">
+        import footer1 from "./component/footer.js"
+        let footerContainer = document.getElementById('mainFooter');
+        footerContainer.innerHTML = footer1();
+
+        import header1 from "./component/header.js"
+        let headerContainer = document.getElementById("header1");
+        headerContainer.innerHTML = header1();
+
+        import topSection from "./component/top.js"
+        let topContainer = document.getElementById("top1");
+        topContainer.innerHTML = topSection();
+
+
+
+    </script>
 </body>
 
 </html>
