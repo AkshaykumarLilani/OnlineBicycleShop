@@ -186,7 +186,7 @@ button:hover {
 
 @media screen and (max-width: 1000px) {
   #container {
-    display: block;
+    flex-direction: column;
   }
   #left-container {
     width: 100%;
