@@ -13,13 +13,18 @@
   background-color: #262626;
   color: white;
 }
+#order-item > h2 {
+  color: white !important;
+}
 #item-name {
   margin-bottom: 0;
-  color: white;
 }
 #color-and-size {
   display: flex;
   gap: 1em;
+}
+#color-and-size > div > h5 {
+  margin-bottom: 0.5em;
 }
 #order-buttons {
   border-top: 1px solid rgb(218, 209, 209);
@@ -44,12 +49,13 @@
   gap: 1em;
 }
 #left-container {
-  width: 50%;
+  width: 55%;
 }
 #payment {
   display: flex;
   gap: 1em;
   padding: 1em;
+  justify-content: space-around;
 }
 #payment > div {
   width: 10em;
@@ -64,7 +70,7 @@
   display: flex;
 }
 #exchange-and-return > span {
-  padding-top: 1.5em;
+  padding-top: 0.1em;
 }
 /* classes */
 .card {
@@ -76,7 +82,7 @@
 .characterstic {
   display: flex;
   justify-content: space-between;
-  padding: 0;
+  padding: 0.5em;
   margin: 0;
   border-bottom: 1px solid #262626;
 }
@@ -107,7 +113,7 @@
 }
 .rating-value {
   font-size: 1em;
-  padding-top: 1.1em;
+  padding-top: 0.1em;
   margin-left: 10px;
 }
 .color-button {
@@ -178,4 +184,13 @@ button:hover {
 }
 body {
   margin-top: 1em;
+}
+
+@media screen and (max-width: 1000px) {
+  #container {
+    display: block;
+  }
+  #left-container {
+    width: 100%;
+  }
 }
