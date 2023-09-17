@@ -1,25 +1,5 @@
 //TODO temporary data
-const bike = {
-  large_img:
-    "https://m.media-amazon.com/images/I/41mXAbIYkCL._SX300_SY300_QL70_FMwebp_.jpg",
-  img2: "https://m.media-amazon.com/images/I/610OAk5EolL._SY355_.jpg",
-  img3: "https://m.media-amazon.com/images/I/619TG7ES60L._SY355_.jpg",
-  img4: "https://m.media-amazon.com/images/I/51ZGjaThlHL._SY355_.jpg",
-  img5: "https://m.media-amazon.com/images/I/61sN7RK0fKL._SY355_.jpg",
-  title: "Urban Terrain UT1000 Steel MTB 27.5 Mountain Cycle",
-  frame_colors: ["black"],
-  front_wheel: "Traversal SL 29",
-  rear_wheel: "TRAVERSE SL 29",
-  Front_tire: "back",
-  inner_tubes: "STANDARD, PRESTA VALVE",
-  front_Wheel: "BUTCHER GRID TRAIL T7 29 * 2.3",
-  description:
-    "The Shimano derailleurs and shifters are made with Japanese technology for a seamless gear shifting experience and trustworthy performance. The stylish bike has a 21 speed (7 X 3) setting that allows the rider to shift gears according to his requirement. The High-quality double disc brakes on both front and rear wheels ensure stable and quick braking. The disc brakes help you navigate safely during challenging situations such as a crowded market. ",
-  year: 2890,
-  rating: 4.5,
-  price: 11920.0,
-  category: "mountain",
-};
+const bike = JSON.parse(localStorage.getItem("item-page-data")) || {};
 //!Data
 let index = 0;
 
@@ -40,6 +20,7 @@ const imageSlider = document.querySelector("#item-image-slider");
 const slideLeft = document.querySelector("#slide-left");
 const slideRight = document.querySelector("#slide-right");
 const sliderButtons = document.querySelector("#slider-buttons");
+const addToCartButton = document.querySelector("#order-buttons > button");
 
 //?function to show characterstics of bike
 function showCharacterstics(bike) {
@@ -200,6 +181,14 @@ sliderButtons.addEventListener("click", ({ target }) => {
     target.classList.add("image-button-active");
   }
 });
+//? function to handle addToCart
+addToCartButton.addEventListener("click", (event) => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cartItems.push(bike);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  window.location.href = "../../../cart.html";
+});
+
 //!function calls
 showCharacterstics(bike);
 showItemDescription(bike);

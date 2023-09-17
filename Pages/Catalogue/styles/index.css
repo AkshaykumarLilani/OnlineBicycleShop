@@ -13,11 +13,6 @@
 .catalogue-card:hover {
   cursor: pointer;
   border: none;
-  box-shadow: rgba(163, 159, 159, 0.943) 0px 54px 55px,
-    rgba(163, 159, 159, 0.943) 0px -12px 30px,
-    rgba(163, 159, 159, 0.943) 0px 4px 6px,
-    rgba(163, 159, 159, 0.943) 0px 12px 13px,
-    rgba(163, 159, 159, 0.943) 0px -3px 5px;
   transform: scale(1.05);
 }
 .catalogue-card > img {
@@ -30,4 +25,7 @@
 }
 body {
   margin: 2em;
+}
+h1 {
+  color: white;
 }
