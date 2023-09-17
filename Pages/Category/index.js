@@ -2,6 +2,7 @@ import { categoryPageBicycleCard } from "../../components/categoryPageBicycleCar
 import { baseUrl } from "../../constants.js";
 import { getSpinnerElement } from "../../components/spinner.js";
 import { addFiltersToUI, filtersObj, showCurrentFilters } from "./generateFilters.js";
+import { generateAndDisplayBreadCrumb } from "/script/breadcrumb.js";
 
 let category = "";
 
@@ -13,7 +14,7 @@ let sortObj = {
     _order: "asc",
 }
 
-const getSearchParams = () => {
+export const getSearchParams = () => {
     let obj = {};
 
     if (window.location.search) {
@@ -44,6 +45,22 @@ if (searchParams.category) {
 }
 
 console.log({ category });
+
+function highlightNavbarElement(){
+    let navbarElements = document.querySelectorAll("#navbar1>li");
+    console.log({navbarElements});
+    if (navbarElements && navbarElements.length > 0){
+        for (const li of navbarElements){
+            if (li.innerText.toLowerCase() === category.toLowerCase()){
+                for (let a of li.childNodes){
+                    a.classList.add("navbar-active");
+                }
+            }
+        }
+    }
+}
+
+highlightNavbarElement();   
 
 if (category) {
     let categoryTitleHTMLElement = document.querySelector("#category-title");
@@ -268,3 +285,5 @@ const sortEvent = (event) => {
 let sortSelect = document.getElementById("products-sort-by");
 console.log(sortSelect)
 sortSelect.addEventListener("change", sortEvent);
+
+generateAndDisplayBreadCrumb();

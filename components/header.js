@@ -2,11 +2,11 @@ function header() {
     return `    <div class="left-section1">
     <a href="/"><img src="/images/images.png" class="logo1" alt="" /></a>
     <ul id="navbar1">
-      <li><a class="#" href="/Pages/Category/index.html">MOUNTAIN</a></li>
-      <li><a href="/Pages/Category/index.html">ROAD</a></li>
-      <li><a href="/Pages/Category/index.html">ACTIVE</a></li>
-      <li><a href="/Pages/Category/index.html">ELECTRIC</a></li>
-      <li><a href="/Pages/Category/index.html">KIDS</a></li>
+      <li><a class="#" href="/Pages/Category/index.html?category=mountain">MOUNTAIN</a></li>
+      <li><a href="/Pages/Category/index.html?category=road">ROAD</a></li>
+      <li><a href="/Pages/Category/index.html?category=active">ACTIVE</a></li>
+      <li><a href="/Pages/Category/index.html?category=electric">ELECTRIC</a></li>
+      <li><a href="/Pages/Category/index.html?category=kids">KIDS</a></li>
 
     </ul>
   </div>

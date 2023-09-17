@@ -210,3 +210,6 @@ color: white;
   margin-left: 10px; 
 }
 
+.navbar-active{
+  color: #c68409 !important;
+}
