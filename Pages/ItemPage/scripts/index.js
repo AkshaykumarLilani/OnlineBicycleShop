@@ -21,10 +21,33 @@ const slideLeft = document.querySelector("#slide-left");
 const slideRight = document.querySelector("#slide-right");
 const sliderButtons = document.querySelector("#slider-buttons");
 const addToCartButton = document.querySelector("#order-buttons > button");
+const quickAddButton = document.querySelector(
+  "#order-buttons > button:nth-child(2)"
+);
 const addToWishlistButton = document.querySelector(
   "#order-buttons > button:nth-child(3)"
 );
 
+//?function to check if element is present in cart
+function isBikePresentInCart() {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  if (cartItems.length == 0) return false;
+  let found = false;
+  for (let i = 0; i < cartItems.length; i++)
+    if (cartItems[i].title === bike.title) return true;
+  return false;
+}
+//? function to add bike to cart
+function addToCart() {
+  if (isBikePresentInCart()) return;
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cartItems.push(bike);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}
+//? if item is already in cart then set text of button to added
+window.addEventListener("load", () => {
+  if (isBikePresentInCart()) addToCartButton.textContent = "✔️ADDED";
+});
 //?function to show characterstics of bike
 function showCharacterstics(bike) {
   itemCharactersticsContainer.innerHTML = null;
@@ -186,16 +209,27 @@ sliderButtons.addEventListener("click", ({ target }) => {
 });
 //? function to handle addToCart
 addToCartButton.addEventListener("click", (event) => {
-  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  cartItems.push(bike);
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  window.location.href = "../../../cart.html";
+  if (!isBikePresentInCart()) {
+    addToCart();
+    addToCartButton.textContent = "✔️ADDED";
+  }
 });
 //?function to add to wishlist
 addToWishlistButton.addEventListener("click", (event) => {
   const wishlistItems = JSON.parse(localStorage.getItem("wishlistItems")) || [];
+  for (let i = 0; i < wishlistItems.length; i++)
+    if (wishlistItems[i].title === bike.title) {
+      alert(`${bike.title} is alreay present in your wishlist`);
+      return;
+    }
   wishlistItems.push(bike);
   localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+  alert(`${bike.title} is added to your wishlist`);
+});
+//? function to handle quick Add
+quickAddButton.addEventListener("click", () => {
+  if (!isBikePresentInCart()) addToCart();
+  window.location.href = "../../../cart.html";
 });
 
 //!function calls
