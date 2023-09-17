@@ -1,7 +1,10 @@
 import { getSearchParams } from "/Pages/Category/index.js";
 
 export const generateAndDisplayBreadCrumb = () => {
-    let breadCrumbElement = document.querySelector(".breadcrumb");
+    let top1 = document.getElementById("top1");
+
+    let breadCrumbElement = document.createElement("div");
+    breadCrumbElement.classList.add("breadcrumb");
     console.log({breadCrumbElement});
 
     const pathname = window.location.pathname;
@@ -37,9 +40,7 @@ export const generateAndDisplayBreadCrumb = () => {
             }
             breadCrumbElement.append(p);
         }
-    })
+    });
 
-
-    // 1. git checkout -b shivam-dev
-    // 2. git merge origin/akshay-dev
+    top1.insertAdjacentElement("afterend" ,breadCrumbElement);
 }

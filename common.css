@@ -1,52 +1,65 @@
-:root{
-    --color-yellow: #C68409;
-    --color-red: #EB001B;
-    --color-gray: #262626;
-    --color-grad: #422F0B;
+:root {
+  --color-yellow: #c68409;
+  --color-red: #eb001b;
+  --color-gray: #262626;
+  --color-grad: #422f0b;
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
-    margin: 0px;
-    background-color: #262626;
+  font-family: "Raleway", sans-serif;
+  margin: 0px;
+  background-color: #262626;
 }
 
 .text-white {
-    color: white;
+  color: white;
 }
 
 .background-yellow {
-    background-color: var(--color-yellow);
+  background-color: var(--color-yellow);
 }
 
 .background-red {
-    background-color: var(--color-red);
+  background-color: var(--color-red);
 }
 
 .breadcrumb {
-    min-height: 40px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 76px;
+  padding-top: 30px;
 }
 
 .breadcrumb > a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .breadcrumb > a > img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .breadcrumb > p {
-    color: gray;
-    font-weight: bold;
-    font-style: italic;
-    margin: 0px;
+  color: gray;
+  font-weight: bold;
+  font-style: italic;
+  margin: 0px;
 }
 
 .breadcrumb > hr {
-    background-color: gray;
+  background-color: gray;
+}
+
+@media (max-width: 550px) {
+  .breadcrumb {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 30px;
+  }
 }
