@@ -2,6 +2,7 @@
 #container {
   display: flex;
   gap: 1em;
+  margin-top: 1em;
 }
 #container div {
   margin-bottom: 1em;
@@ -181,9 +182,6 @@ button {
 }
 button:hover {
   cursor: pointer;
-}
-body {
-  margin-top: 1em;
 }
 
 @media screen and (max-width: 1000px) {
