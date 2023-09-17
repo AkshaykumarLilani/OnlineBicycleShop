@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/signup.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/checkout.css">
+    <link rel="stylesheet" href="./styles/payment.css">
+
+    <style>
+                      body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            position: relative;
+            text-align: center;
+           
+            padding: 20px 0;
+            
+           
+            background-image: url("images/banner.png");
+            background-size: cover;
+            background-position: center;
+            height: 30vh;
+        }
+
+        .banner h2{
+            font-weight: 600;
+            font-size: 80px;
+            color: white;
+            margin-top: 50px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .banner-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+        }
+
+        .left-box {
+            flex-basis: 40%;
+        }
+
+        .right-box {
+            flex-basis: 55%;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(221, 157, 157, 0.1);
+        }
+        
+        .right-box h2{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: brown;
+        }
+        .right-box p{
+            font-size: 20px;
+            line-height: 26px;
+        }
+        #paragraph{
+            color: #d2b32b;
+        }
+
+        .left-box img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+        }
+
+        @media (max-width: 768px) {
+    .banner {
+        height: 20vh;
+    }
+
+    .banner h2 {
+        font-size: 50px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .left-box,
+    .right-box {
+        flex-basis: 100%;
+    }
+
+    .right-box {
+        margin-top: 20px;
+    }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 480px) {
+    .banner h2 {
+        font-size: 36px;
+    }
+
+    .right-box {
+        padding: 10px;
+    }
+}
+    </style>
+
+</head>
+
+<body>
+    <section id="header1">
+       
+    </section>
+    <section id="top1">
+      
+    </section>
+
+    <div class="banner">
+        <h2> #Know About Us</h2>
+     </div>
+ 
+     <!-- Content -->
+     <div class="content">
+         <!-- Image Box -->
+         <div class="left-box">
+             <img src="images/a6.jpg" alt="About Us Image">
+         </div>
+ 
+         <!-- Text Box -->
+         <div class="right-box">
+             <h2>About Specialized</h2>
+             <p id="paragraph">
+                Welcome to Specialized, where a world of cycling excellence awaits you. Established in 2023, we are your ultimate destination for all things cycling. As fervent enthusiasts of pedal-powered adventures, we have embarked on a journey to provide cycling aficionados with an unparalleled online shopping experience. Our passion for bicycles and our commitment to customer satisfaction have propelled us to become a leading player in the world of online cycling retail.
+
+                At Speicalized, we are on a mission to redefine the way you shop for bicycles and cycling accessories. We firmly believe in the power of innovation and convenience, and we have harnessed these principles to create a virtual cycling haven for enthusiasts of all levels. Whether you're a seasoned rider or just starting your cycling journey, we are here to cater to your needs.
+                
+                Our comprehensive range of products spans the entire spectrum of cycling. From sleek road bikes built for speed to rugged mountain bikes ready to conquer any trail, we have meticulously curated a selection that covers all your cycling desires. Our inventory includes top-of-the-line bicycles, cutting-edge accessories, and high-quality gear to enhance your cycling experience.
+                
+                Our team is a blend of seasoned cycling experts, tech-savvy professionals, and passionate riders. We work collaboratively to ensure that you have access to the latest advancements in the cycling world. We constantly update our inventory to bring you the most innovative and performance-driven products on the market.
+                
+                In addition to our dedication to offering the best in cycling, we are equally committed to sustainability. We understand the importance of responsible sourcing and the role we play in preserving our planet. That's why we prioritize eco-friendly and sustainable products, so you can enjoy your rides knowing you're making a positive impact on the environment.
+            
+             </p>
+         </div>
+     </div>
+
+
+<footer id="mainFooter">
+
+      
+    </footer>
+</body>
+
+</html>
+
+<script src="./script/checkout.js"></script>
+<script src="./script/payment.js"></script>
+
+
+<script type="module">
+    import footer1 from "./component/footer.js"
+    let footerContainer = document.getElementById('mainFooter');
+    footerContainer.innerHTML = footer1();
+  
+    import header1 from "./component/header.js"
+    let headerContainer = document.getElementById("header1");
+    headerContainer.innerHTML = header1();
+  
+    import topSection from "./component/top.js"
+    let topContainer = document.getElementById("top1");
+    topContainer.innerHTML = topSection();
+  </script>
+
+

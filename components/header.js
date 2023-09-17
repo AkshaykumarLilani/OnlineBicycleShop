@@ -23,7 +23,7 @@ function header() {
       <a href="/cart.html">
         <i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; margin-right: 50px;"></i>
       </a>
-      <a href="/login.html">
+      <a href="/signup.html">
         <i class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
       </a>
       <a href="/cart.html">
