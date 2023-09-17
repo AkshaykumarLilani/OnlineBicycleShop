@@ -36,7 +36,7 @@
         <!-- Razor pay section -->
         <div style="flex: 1; padding: 20px;">
             <div id="payDiv">
-                <button id="rzp-button1">Click For Payment</button>
+                <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i> Payment</button>
             </div>
         </div>
     </div>
@@ -65,7 +65,56 @@
     import topSection from "./component/top.js"
     let topContainer = document.getElementById("top1");
     topContainer.innerHTML = topSection();
-  
-    
-  
   </script>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+//   let price = parseInt(localStorage.getItem("finalPrice")) * 100;
+
+let price =1000;
+  var options = {
+    "key": "rzp_test_rPXS0eKEZLLd9S", // Enter the Key ID generated from the Dashboard
+    "amount": price.toString(),
+    "currency": "INR",
+    "description": "Acme Corp",
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAw1BMVEX////+AAwAAAD+AACurq55eXlra2vY2Nj4+PicnJz+AAjf39+JiYn8/Pz/7u/t7e3/5+izs7PNzc3m5uagoKDGxsYyMjJRUVHp6en/4uP+WFz/6er/ztD+gIOPj48tLS1fX18aGhqCgoIoKCj+i47/2Nn/9fb+KzH/x8m+vr5vb29UVFTJyclISEj+mJv+R0v+NTv+oqT+Ymb+Ulb/t7n/rrD+GB7+YGT+lJf+dnr+oaP+PkL+bXD+JSsfHx88PDz/vr85szKvAAALnUlEQVR4nO1d6VryOhBODQgUSmVRRAURgQ9xAXdxg/u/qtPsGwpIOW3y8P6R0JjOZCaZLS0A7LDDDjs4jeB0njQJW8Ycws+kadguziD8SJqGraL/Bj14ljQV28QUeh7sJ03F9hC0IgY9+JQ0HdsDZtCDvaTp2BoC6GMO75ImZFtozrEIfRgkTcm28IkZjGRYTpqSLeGO6GjE4X3SpGwJnMHxadKkbAWDHtXRiEM3tfSDMRixeJI0MdvAUDDowUnS1GwBPbYIiblwT03PZAYjIcKkCYob7y/QUwCHSZMUL96hxqAHW0nTFCfOTnT+Ig6fk6YqTjyZDPpwkDRVMaJsqKhzbtvZxFiFjll8fR91LgAO9I3GNQajmEkXoVt5qP7HWBehW2moPtR3UviYNE3x4l5XUR86Ff02QfCqi/A9aaLixHzyNtRWoVt5xB6E4y+NQaccbpR4UqNCD34lTVOsKBvuKHxZWHN6G1uqumZIsXiXmUYGpfl/ExcH7jUN9aAeUAQPTfD0iNxyKzNTTYPBk5ZWrZjClxZ1CGy0IV+GNyrvMgHofbZgZP595gdYl3wzfBlVR3ufH6o3Bx8SI/VvMDIzcCwFFKf98fRB93UsK+2bQe+bdHUCDX/crs2mPLnz9G1mIkQ0nL5oV0kXe4KqKKbX91EltfasX6UcvlhTGA6MxJMvdpnnx5PFDFrls74ba4x7Za/QkK/UzRbPpt/TOPRZGWY6/Zk9xKEdx93OHs1tkuXWXn9l0I5EePnDTHAT0dwPnz0z9631tKAgNTClhEuFp6170wSaHFrgnZ7phtCDH03QRLHirwpK+6a/IGUEFFhH7+HJ2+8rkHb10r8ODX8bs3i3goJ6aKNJu7UIWk3dThAWV2HPs2KfeRnrCfx1AMdJ078cpiVch0Ev7ToKUFD0dwatSPab2cN1RGhBVbj/uJEIU19TPA02WYQWlIWHsH+20TaTNANLMYGTBceCVudwnjQDyxA53BtZCgvKwkb+dx348CBp+pdhgKz9BiJ8W36LZPEG73urBEc/MfgvaQaWYvpbemkp0h9SIBn+mT3PhiTiwY8JUFNaC3pakH5amUEIWwu8gvTnZg5WVFEfPhzo59kRgy9JM7AUn6txCOE06mzmE9NfjzldTUfhvz7ubHyf/sB+JUvvk6Tw0PR80u+Q9ldhENLKjHHQ1AYRrmAKfeiR6uhgauEqBPrJw0UC7NHKp1H5tkGE8hN3PzA4ZgZ9aHS1wV8zi6GGBHn+xcyHpz+mQPhdiPCfyGM/m7Xv1PtrCAtqMZIAZTUc/HoAJcVY8FAT42DyLI5yle/1dKpvzSOIrR9Y9OVTTkG0peqHoNJfLGRYnKOBqq07MR5KsOgM1KKlCOGnuo38M1bhPBlq/4ShGRP5ei1QNyuWnfjWz3HBiWEH9H3GtgcQ3xUWoa/5Kk30+iuVQQv8NRWSFH0c6yp4PTvQnNL0l5oMPInzzGa88KgfVYCvCZC4KagU4aLzBn3jVLt9IgRkLfpwvLAEoSVzbKjELMIzXPgyvTIwvG47RRhhMFwULKDCkprssOSU5aoYoAK2ag0t8khXQg9O50oGw5K4cHWUUZgoB/jpz+Ovhd77A/T8FymtalNQsQoCnMj3ZRHOk6YpZnxq1t6e0H5VDO609ydZkp1ZEX1k+ZTg17WN9AkG8P1Liazc2kijqPBefZzbstB+OZ70yr1zG6meabTg6MxaGDwbjyGmv5q2FszA1zERAuNsiWtBhVHScM0WmiVw50wFMB5IT/1h7nWhH9Swoai9Dp4GgZZ/ciwwPB2Ldz9TDi19C81P6EGorkMrTl6sgy/ouZEG/glN82yJrWngH2AcYHAue2GcXzBrbnajrx9fcG6fMQ5AWXDaeT0Yy9C+svYSGKe/bTuZsBTGGy9di32Nh54teNZ+PegHbJz76ZyyeUjKgmfR14KRY3Orrm2+pcaK1wmsg0B/zMQ5h0bPz7jHYc94R7lrLpuevnDPZTOS3el/EHZdHOgydK0setLXchiu+Wx3ED66zSF6SYbnNIcLXpKc+vderAn92Qr3jIXBoWs1p4ERWTiWC14QWbhW+tWfunSQw5brHJZPXOdQP0Zj4a8CLMOj6zLUk6XuHTLRE97uuTR6AOxaeRvgo92Oc6jV1lzkELzJT1Q6uA4jzKUHndzkUK4+uVc7JBBvOXPQHhLwXIaDPg2BOI7hXJqGIuDn2pw73s3An6p0rj7KwTJSNryN/G9gPznuXmGG45RI0V0ZAlpIdO6siQz6sox50nRsD6Te7e5mGhlF7IE7WMcXIO/Vte3nG9cCzi06mFCU0II+dJvDYAIfodNqCoIDVPd2mkXkhDtXytfRczLhpuDEgp+S2QwD6NrBKAPQ2YQUQ7TZOJqQ4hi6GwfvsMMOO+ywww7pRy4jcAiA1Cqiy2FFfJEDoCpdD0GxEKFKxgky0ec6G7UgNULUuAK1gkAF/cNVnbczIJ+VcBUng/U9CTfgUG7WALiR2yG4lZsAdNAfPBEgf4k+n9NRr1CjTRsl1KiCrPy/OfoPFBWQka+iO8eFPB6wGOQxAGZhBgJy+wq9XMkHCJTw8xrpHIAQNTtkIMzsXoMO2yATghGgz0cAFHMIxQJqXgRgH/3N5hkh55jvCHtkPmJDXR2viJqZ6MM3mWg8s11+uaH2LhG5I1TI3O9Lw4xorwyZLIrjC9Q8JrNzwYeqcqHjcTjjmwNxciuaI6J9RFmP6Mwes6tF+i1FIPQypNpFJyNL5ocAj8FKN6RjpNht9JcvW6ICSOhYTbLxMYjHE+s6ZDPZIfevSnKJ0GUSJsiI5jXlkCw9rNsz2guv5BJtEO3P0dkRoqrxG93KkxMDOqpKtOlMhvT+14pW5jUFOuJNvk0QfuuyXjYkNQhmTK819S+xG2E1kZRqY6g044ntRB8K5P41oYac8BJv3nAij9GnglCHC0kva2xMhFve54gqq3RjLPSRqlSbI6uoYYZpCCaxpmvlN/mWocObeAMucnkrpiIrqUGHj4fVv8GH4psRVhOx/8QBrB4zKkW0J6CNpELmnWglL+8eytKgwrlGn7Bsi4dcKreSXuYlNcDyKQheD/lYeHWiDwXRJTZg8i4xPTdsJi/JvJPVNTs/P/9GEmmwNUTQZUTWiLbi3mg3zMkzURdq0BVLD6v13vdFBDSjwlRcKKsmJmCdwtp2TTWkS6WDGb2dNRqN25AyIkwFFs4l+oRFVqp3mMBHkl4SzcYkY/FQG4l3tNk1Ghmtua2ZCpnFGdvGssQxixQXq53Y1rLqosTCqTPKGQDdhy/lsbu8f4d8S0xFyIbSTAXff+IDpY35jZf7JeRja2slzzigYPqE5+Uq8uE6dMEV5Jm4ZfpRodOIUZHECehegO6I9VvsP7GBjotZ2K9yB6Ymy8IwFVyfZkyvZoQ6xZTnqL5TH4ltWkeMJQxhKvaVOY0PWHYVsjYkn77E1JDgUr3coPrUZqsPUFUTegnokjyknF4wtcyp6s9NBdbv7/gZZOrHpptCc6s0U1Gk+lTksx5QzmbSTLDdCPcS7i0WlbDqR2ySNFc1NuBx22RtSEHL71FFlnJ2xBcUVuqC0Es+dJ1cElqpiYqbCm1OYwMRYQ3P/bn0/bmilUV5owA89GkLmjChGSIfNhNEO/IX6uz8FFXU2dKOCWGR4JqsnypbDBQkECVdcgFZlJ0aadP9sk46UXXD6++QyKGCQ12iFlkyV51ajoCayDqJh0Ni/BtRq8JV+bASSwCMJ5YhJFGEdP5OyV4AJQPR4Q77xZ5wakkonRfdCnRJKnkR/s8UOeJecESiDbq58CYGx63a2ecohSBEzYzcoSCuR1IKu7zVqYIc6l0AV6NslqchKtHnUQiuWDJplA/R5TbIl6QU0wgls0Qzsj4lCW0ku3pwlG0fxhghpg4FcD4qgczyjtaiAG6PR8Wb5R2tRVgqgpvu8n4WI6y3XdbRHXbYwSL8B0oYwAla6lGhAAAAAElFTkSuQmCC",
+    "prefill": {
+      "email": "gaurav.kumar@example.com",
+      "contact": "+919900000000", // Note: Added "+" to make it a string
+    },
+    config: {
+      // ... (your config settings)
+    },
+    "handler": function (response) {
+      // Handle the response from Razorpay
+    //   alert(response.razorpay_payment_id);
+
+      // Check if the payment is successful
+      if (response.razorpay_payment_id) {
+        // Redirect to the success page
+        window.location.href = "success.html";
+      } else {
+        // Handle payment failure or dismissal
+        console.log("Payment failed or dismissed");
+      }
+    },
+    "modal": {
+      "ondismiss": function () {
+        if (confirm("Are you sure, you want to close the form?")) {
+          txt = "You pressed OK!";
+          console.log("Checkout form closed by the user");
+        } else {
+          txt = "You pressed Cancel!";
+          console.log("Complete the Payment")
+        }
+      }
+    }
+  };
+
+  var rzp1 = new Razorpay(options);
+  document.getElementById('rzp-button1').onclick = function (e) {
+    rzp1.open();
+    e.preventDefault();
+  }
+</script>
