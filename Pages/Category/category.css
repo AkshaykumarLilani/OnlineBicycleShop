@@ -205,3 +205,16 @@ div.list-filter-option-container{
   padding: 8px;
   border-radius: 8px;
 }
+
+.add-to-wishlist-button{
+  box-shadow: none;
+  width: 32px;
+  padding: 0px 3px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid gray;
+}
+
+.add-to-wishlist-button > img {
+  width: 100%;
+}

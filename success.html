@@ -73,7 +73,7 @@
         // If you have any other cart-related items in localStorage, clear them here
     }
     function getURLParameter(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+        return decodeURIcomponents((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
     }
 
     // Get the payment details from the URL
@@ -95,20 +95,20 @@
 
 <script type="module">
 
-    import topSec from "./component/topSection.js"
+    import topSec from "./components/topSection.js"
     let topContainer = document.getElementById("top");
     topContainer.innerHTML = topSec();
 
 
-    import dropdown from "./component/dropdown.js"
+    import dropdown from "./components/dropdown.js"
     let dropdownContainer = document.getElementById("drop-down");
     dropdownContainer.innerHTML = dropdown();
 
-    import newslater from "./component/newslater.js"
+    import newslater from "./components/newslater.js"
     let newsContainer = document.getElementById("newsletter");
     newsContainer.innerHTML = newslater();
 
-    import footer1 from "./component/footer.js"
+    import footer1 from "./components/footer.js"
     let footerContainer = document.getElementById("mainFooter");
     footerContainer.innerHTML = footer1();
 </script>

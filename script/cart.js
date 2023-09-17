@@ -5,21 +5,23 @@ const cartTableBody = cartSection.querySelector("tbody");
 // Load cart items from local storage and populate the table
 function loadCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
   cartTableBody.innerHTML = "";
+  console.log(cartItems);
 
   cartItems.forEach((item) => {
     const row = document.createElement("tr");
     row.innerHTML = `
             <td><button class="remove-item">Remove</button></td>
-            <td><img src="${item.image}" alt="${item.name}" /></td>
-            <td>${item.name}</td>
+            <td>
+              <img src="${item.large_img}" alt="${item.title}" />
+              <p class="text-white">${item.title}</p>
+              </td>
             <td>${item.price}</td>
             <td><input type="number" class="quantity" value="${
               item.quantity
             }" min="1"></td>
             <td class="subtotal">${(
-              parseFloat(item.price.replace("Rs.", "")) * item.quantity
+              item.price * 1
             ).toFixed(2)}</td>
         `;
     cartTableBody.appendChild(row);

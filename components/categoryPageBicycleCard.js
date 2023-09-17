@@ -45,6 +45,10 @@ export const categoryPageBicycleCard = function (data) {
     price.innerText = "₹ " + data.price;
     parentDiv.append(price);
 
+    let actionButtons = document.createElement("div");
+    actionButtons.style.display = "flex";
+    actionButtons.style.gap = "15px";
+
     let addToCart = document.createElement("button");
     addToCart.classList.add("add-to-cart-button");
     if (isInCart(data)) {
@@ -77,7 +81,35 @@ export const categoryPageBicycleCard = function (data) {
             }
         }
     });
-    parentDiv.append(addToCart);
+    actionButtons.append(addToCart);
+
+    let addToWishlist = document.createElement("button");
+    addToWishlist.classList.add("add-to-wishlist-button");
+    if (isInWishlist(data)) {
+        addToWishlist.innerHTML = `<img src="/images/red-heart.png" alt="remove from wishlist"/>`;
+    } else {
+        addToWishlist.innerHTML = `<img src="/images/black-heart.png" alt="add to wishlist"/>`;
+    }
+    addToWishlist.classList.add("cursor-pointer");
+    addToWishlist.setAttribute("data-id", "w-"+data.id);
+    addToWishlist.addEventListener("click", (event) => {
+        if (event.target.src.includes("black-heart")) {
+            pushToWishlist(data);
+            let thisB = document.querySelector("button[data-id='w-" + data.id + "']");
+            if (thisB) {
+                thisB.innerHTML = `<img src="/images/red-heart.png" alt="remove from wishlist"/>`;
+            }
+        } else if (event.target.src.includes("red-heart")){
+            removeFromWishlist(data);
+            let thisB = document.querySelector("button[data-id='w-" + data.id + "']");
+            if (thisB) {
+                thisB.innerHTML = `<img src="/images/black-heart.png" alt="add to wishlist"/>`;
+            }
+        }
+    });
+    actionButtons.append(addToWishlist);
+
+    parentDiv.append(actionButtons);
 
     // let actionButtons = document.createElement("div");
 
@@ -91,6 +123,21 @@ const isInCart = (data) => {
     }
     if (Array.isArray(cartItems) && cartItems.length > 0) {
         let filtered = cartItems.filter(f => f.id === data.id);
+        if (filtered.length > 0) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+const isInWishlist = (data) => {
+    let wishlistItems = localStorage.getItem("wishlistItems");
+    if (wishlistItems) {
+        wishlistItems = JSON.parse(wishlistItems);
+    }
+    if (Array.isArray(wishlistItems) && wishlistItems.length > 0) {
+        let filtered = wishlistItems.filter(f => f.id === data.id);
         if (filtered.length > 0) {
             return true;
         }
@@ -116,6 +163,28 @@ const removeFromCart = (data) => {
         cartItems = JSON.parse(cartItems);
         cartItems = cartItems.filter((d)=> !(d.id === data.id));
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+        // this should never happen
+    }
+}
+
+const pushToWishlist = (data) => {
+    let wishlistItems = localStorage.getItem("wishlistItems");
+    if (wishlistItems) {
+        wishlistItems = JSON.parse(wishlistItems);
+        wishlistItems.push(data);
+        localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+    } else {
+        localStorage.setItem("wishlistItems", JSON.stringify([data]));
+    }
+}
+
+const removeFromWishlist = (data) => {
+    let wishlistItems = localStorage.getItem("wishlistItems");
+    if (wishlistItems) {
+        wishlistItems = JSON.parse(wishlistItems);
+        wishlistItems = wishlistItems.filter((d)=> !(d.id === data.id));
+        localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
     } else {
         // this should never happen
     }

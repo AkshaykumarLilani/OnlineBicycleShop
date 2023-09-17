@@ -40,6 +40,10 @@ const fetchFullData = async () => {
 
 const generateFilters = (data) => {
   removeFilters();
+
+  let currentFilters = [];
+  let currentFiltersAccordion = getAccordion("Current Filters")
+
   let uFCs = findUniqueValues(data, "frame_colors");
   console.log({ uFCs });
   let uFCsAccordion = getAccordion("Colors", "color-filters", "colors", uFCs);

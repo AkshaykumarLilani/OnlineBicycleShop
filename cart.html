@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SignUP</title>
+  <title>Cart</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="./styles/navbar.css">
   <link rel="stylesheet" href="./styles/footer.css">
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./styles/login.css">
   <link rel="stylesheet" href="./styles/checkout.css">
   <link rel="stylesheet" href="./styles/cart.css">
+  <link rel="stylesheet" href="common.css">
 
 
 </head>
@@ -28,7 +29,7 @@
     <table width="100%" class="cart-content">
         <thead>
             <tr>
-                <td > </td>
+                <td ></td>
                 <td>Product</td>
                 <td>Price</td>
                 <td>Quantity</td>
@@ -78,15 +79,15 @@
 <script src="./script/payment.js"></script>
 <script src="./script/cart.js"></script>
 <script type="module">
-  import footer1 from "./component/footer.js"
+  import footer1 from "./components/footer.js"
   let footerContainer = document.getElementById('mainFooter');
   footerContainer.innerHTML = footer1();
 
-  import header1 from "./component/header.js"
+  import header1 from "./components/header.js"
   let headerContainer = document.getElementById("header1");
   headerContainer.innerHTML = header1();
 
-  import topSection from "./component/top.js"
+  import topSection from "./components/top.js"
   let topContainer = document.getElementById("top1");
   topContainer.innerHTML = topSection();
 

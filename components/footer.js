@@ -76,11 +76,7 @@ function footer() {
     </div>
   </section>
   
-  <section class="copyright1">
-    
-  </section>
-  
-  <p style="text-align: center; color: white;"><span>©</span> 2023 Specialized Bicycles Inc. Rights Reserved, Taqwah</p>
+  <p style="text-align: center; color: white;"><span>©</span> 2023 Specialized Bicycles Inc. Rights Reserved, Cared-Drain-2164</p>
   `
 }
 

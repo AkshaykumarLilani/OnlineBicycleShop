@@ -1,6 +1,6 @@
 function header() {
     return `    <div class="left-section1">
-    <a href="#"><img src="/images/images.png" class="logo1" alt="" /></a>
+    <a href="/"><img src="/images/images.png" class="logo1" alt="" /></a>
     <ul id="navbar1">
       <li><a class="#" href="/Pages/Category/index.html">MOUNTAIN</a></li>
       <li><a href="/Pages/Category/index.html">ROAD</a></li>
@@ -20,13 +20,13 @@ function header() {
 
   <div class="right-section1">
     <div class="icons1">
-      <a href="cart.html">
+      <a href="/cart.html">
         <i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; margin-right: 50px;"></i>
       </a>
-      <a href="login.html">
+      <a href="/login.html">
         <i class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
       </a>
-      <a href="cart.html">
+      <a href="/cart.html">
         <i class="fa-regular fa-heart" style="color: #eeeeee;"></i>
       </a>
     </div>

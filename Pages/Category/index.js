@@ -6,6 +6,7 @@ import { addFiltersToUI, filtersObj, showCurrentFilters } from "./generateFilter
 let category = "";
 
 let pageNumber = 1;
+let perPageLimit = 12;
 
 let sortObj = {
     _sort: "",
@@ -84,7 +85,7 @@ export const fetchBicycleData = async (page, doNotRenderFilters) => {
         if (!doNotRenderFilters) addSpinner("category-filters", "Filters");
         showAppliedFilters();
         addSpinner("category-products-and-pagination", "Products");
-        let url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=12" + "&category=" + category;
+        let url = baseUrl + "/bikes" + "?_page=" + page + "&_limit=" + perPageLimit + "&category=" + category;
 
         if (sortObj._sort) {
             url += `&_sort=${sortObj._sort}&_order=${sortObj._order}`;
@@ -206,7 +207,7 @@ const removeExistingPagination = () => {
 const addPagination = (totalCount) => {
     removeExistingPagination();
     let paginationWrapper = document.querySelector("#category-products-pagination-wrapper");
-    let totalPages = Math.ceil(totalCount / 12);
+    let totalPages = Math.ceil(totalCount / perPageLimit);
     for (let i = 0; i < totalPages; i++) {
         let div = document.createElement("div");
         div.className = "pagination-page";
