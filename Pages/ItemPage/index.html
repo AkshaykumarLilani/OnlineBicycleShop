@@ -2,10 +2,15 @@
 <html lang="en">
   <head>
     <title>Item Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="../../styles/navbar.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
     <link href="../../common.css" rel="stylesheet" />
     <link href="./styles/index.css" rel="stylesheet" />
   </head>
   <body>
+    <div id="header1"></div>
+    <div id="top1"></div>
     <div id="container">
       <div id="left-container">
         <div id="item-image-slider" class="card">
@@ -84,11 +89,25 @@
           </div>
         </div>
         <div id="exchange-and-return" class="card">
-          <h2>⏎Exchange and Return</h2>
+          <h3>⏎Exchange and Return</h3>
           <span>: within 14 days</span>
         </div>
       </div>
     </div>
+    <div id="mainFooter"></div>
   </body>
   <script src="./scripts/index.js"></script>
+  <script type="module">
+    import footer1 from "../../component/footer.js"
+    let footerContainer = document.getElementById('mainFooter');
+    footerContainer.innerHTML = footer1();
+  
+    import header1 from "../../component/header.js"
+    let headerContainer = document.getElementById("header1");
+    headerContainer.innerHTML = header1();
+  
+    import topSection from "../../component/top.js"
+    let topContainer = document.getElementById("top1");
+    topContainer.innerHTML = topSection();
+  </script>
 </html>
