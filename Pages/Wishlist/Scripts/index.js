@@ -38,6 +38,8 @@ function showWishListItems() {
   console.log(wishlist);
   if (wishlist.length == 0) showEmptyWishlistMessage();
   else {
+    const wishlistItemsWrapper = document.createElement("div");
+    wishlistItemsWrapper.id = "wishlist-items-wrapper";
     wishlist.forEach((item) => {
       const card = createCard(item);
       card.addEventListener("click", (event) => {
@@ -52,13 +54,23 @@ function showWishListItems() {
             showItemPage(item);
         }
       });
-      container.append(card);
+      wishlistItemsWrapper.append(card);
     });
+    container.append(wishlistItemsWrapper);
   }
 }
 //? function to notify that wishlist is empty
 function showEmptyWishlistMessage() {
-  alert("wishlist is empty");
+  const emptyWishlist = document.createElement("div");
+  emptyWishlist.id = "empty-wishlist";
+  const image = document.createElement("img");
+  image.src = `https://img.freepik.com/free-vector/expenses-calculation-wishlist-planning-shopping-list-purchases-summary-internet-supermarket-basket-shopper-wishlist-creative-design-element_335657-1631.jpg?size=626&ext=jpg`;
+  image.alt = "empty-wishlist";
+  const message = document.createElement(`h1`);
+  message.style.color = "white";
+  message.textContent = "Wishlist is Empty📭";
+  emptyWishlist.append(image, message);
+  container.append(emptyWishlist);
 }
 //? function to delete wishlist item
 function handleDelete(bike) {

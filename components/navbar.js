@@ -1,5 +1,5 @@
 function navbar() {
-    return `    <div class="left-section">
+  return `    <div class="left-section">
     <a href="#"><img src="./images/images.png" class="logo" alt="" /></a>
     <ul id="navbar">
         <li><a class="#" href="/Pages/Category/index.html?category=mountain">MOUNTAIN</a></li>
@@ -27,8 +27,7 @@ function navbar() {
        <a href="signup.html">
         <i class="fa-regular fa-user" style="color: #ffffff; margin-right: 38px;"></i>
        </a>
-        <i class="fa-regular fa-heart" style="color: #eeeeee;"></i>
     </div>
-</div>`
+</div>`;
 }
 export default navbar;

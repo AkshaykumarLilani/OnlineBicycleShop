@@ -2,9 +2,16 @@
   color: white;
   padding: 0.5em;
 }
-#container {
+#wishlist-items-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+#empty-wishlist {
+  text-align: center;
+  margin-bottom: 1em;
+}
+#empty-wishlist > img {
+  border-radius: 0.5em;
 }
 
 .card {
@@ -69,7 +76,7 @@ button:hover {
   cursor: pointer;
 }
 @media screen and (max-width: 650px) {
-  #container {
+  #wishlist-items-wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }

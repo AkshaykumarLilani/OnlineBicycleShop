@@ -1,5 +1,5 @@
 function header() {
-    return `
+  return `
 
     <div id="desktop-nav">
       <div class="left-section1">
@@ -29,7 +29,7 @@ function header() {
           <a href="/signup.html">
             <i class="fa-regular fa-user" style="color: #ffffff;"></i>
           </a>
-          <a href="/cart.html">
+          <a href="/Pages/Wishlist/index.html">
             <i class="fa-regular fa-heart" style="color: #eeeeee;"></i>
           </a>
         </div>
@@ -78,7 +78,7 @@ function header() {
   </div>
   
   
-  `
+  `;
 }
 
 export default header;
