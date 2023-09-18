@@ -12,6 +12,9 @@
     height: auto;
 }
 
+td {
+}
+
 table {
     width: 70%;
     border-collapse: collapse;
@@ -26,7 +29,7 @@ th, td {
     text-align:center;
     font-weight: 700;
     font-size: 18px;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 thead tr{
     background-color: #e2f4ff;
@@ -121,7 +124,7 @@ thead tr{
 .total-section p, .coupon-section p {
     font-size: 23px;
     font-weight: 1000;
-    color: black;
+    color: white;
     margin-bottom: 35px;
     margin-top: 40px;
 }
@@ -189,6 +192,19 @@ a {
     height: auto;
     margin-bottom: 20px;
 }
+
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+}
+
 
 
 
