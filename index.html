@@ -50,11 +50,10 @@
                         <h2 class="a">CHOOSE OUR BEST SELLERS</h2>
                     </div>
                     <div class="hom-2b">
-                        <a href="./Pages/Catalogue/index.html"><img src="./r_homepage/images/img-8.png" alt=""></a>
-                        <a href="./Pages/Catalogue/index.html"><img src="./r_homepage/images/img-9.png" alt=""></a>
-                        <a href="./Pages/Catalogue/index.html"><img src="./r_homepage/images/img-10.png" alt=""></a>
-                        <a href="./Pages/Catalogue/index.html"><button
-                                class="btn-a btn btn-primary">CATALOGUE</button></a>
+                        <a onclick="homeToItemPage(event, 'bic1')"><img src="./r_homepage/images/img-8.png" alt=""></a>
+                        <a onclick="homeToItemPage(event, 'bic2')"><img src="./r_homepage/images/img-9.png" alt=""></a>
+                        <a onclick="homeToItemPage(event, 'bic3')"><img src="./r_homepage/images/img-10.png" alt=""></a>
+                        <a><button class="btn-a btn btn-primary">CATALOGUE</button></a>
                     </div>
                 </div>
             </div>
@@ -77,15 +76,15 @@
                     </div>
                     <div class="hom-4b">
                         <button class="left" onclick="leftScroll()"><i class="arrow left1"></i></button>
-                        <img src="./r_homepage/images/img-3.png" alt="">
-                        <img src="./r_homepage/images/img-4.png" alt="">
-                        <img src="./r_homepage/images/img-5.png" alt="">
-                        <img src="./r_homepage/images/img-3.png" alt="">
-                        <img src="./r_homepage/images/img-4.png" alt="">
-                        <img src="./r_homepage/images/img-5.png" alt="">
-                        <img src="./r_homepage/images/img-3.png" alt="">
-                        <img src="./r_homepage/images/img-4.png" alt="">
-                        <img src="./r_homepage/images/img-5.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic32')" src="./r_homepage/images/img-3.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic33')" src="./r_homepage/images/img-4.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic34')" src="./r_homepage/images/img-5.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic35')" src="./r_homepage/images/img-3.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic36')" src="./r_homepage/images/img-4.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic37')" src="./r_homepage/images/img-5.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic38')" src="./r_homepage/images/img-3.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic39')" src="./r_homepage/images/img-4.png" alt="">
+                        <img onclick="homeToItemPage(event, 'bic30')" src="./r_homepage/images/img-5.png" alt="">
                         <button class="right" onclick="rightScroll()"><i class="arrow right1"></i></button>
                     </div>
                     <a href="./Pages/Catalogue/index.html"><button class="btn-2 btn btn-primary">CATALOGUE</button></a>
@@ -114,8 +113,8 @@
     <footer id="mainFooter">
 
     </footer>
-    
-    <script src="r_homepage\homepage.js"> </script>
+
+    <script src="r_homepage\homepage.js" type="module"> </script>
     <script type="module">
         import footer1 from "./components/footer.js"
         let footerContainer = document.getElementById('mainFooter');
@@ -132,6 +131,7 @@
 
 
     </script>
+    <script src="/script/navbar.js"></script>
 </body>
 
 </html>

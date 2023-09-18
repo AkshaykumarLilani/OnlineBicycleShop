@@ -122,13 +122,15 @@ body{
 }
 }
 
+a{
+    cursor: pointer;
+}
 
 
 
 
 
 
-
-
-
-
+.hom-4b > img {
+    cursor: pointer;
+}
