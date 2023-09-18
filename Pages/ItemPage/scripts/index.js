@@ -149,7 +149,9 @@ function showDiscount() {
 //?function to get images
 function getImages() {
   const images = [];
-  for (let key in bike) if (key.includes("img")) images.push(bike[key]);
+  for (let key in bike)
+    if (key.includes("img") && bike[key] !== "" && bike[key] != "FALSE")
+      images.push(bike[key]);
   return images;
 }
 //? function to show image slider;
