@@ -54,6 +54,14 @@
   border: none;
   color: white;
   padding: 0.5em;
+  transition: background-color 1.5s;
+  /* transition: color 2s; */
+}
+.delete-btn:hover {
+  background-color: white;
+  border: 1px solid red;
+  /* border-radius: 0.5em; */
+  color: red;
 }
 .add-to-cart-btn {
   border: none;
@@ -62,6 +70,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1.5em;
+}
+.add-to-cart-btn:hover {
+  border: 1px solid #c68409;
 }
 
 button {
