@@ -16,11 +16,11 @@ function loadCartItems() {
               <img src="${item.large_img}" alt="${item.title}" />
               <p class="text-white">${item.title}</p>
               </td>
-            <td>${item.price}</td>
+            <td class="text-white">${item.price}</td>
             <td><input type="number" class="quantity" value="${
               item.quantity
-            }" min="1"></td>
-            <td class="subtotal">${(
+            }" min="1" class="text-white"></td>
+            <td class="subtotal text-white">${(
               item.price * 1
             ).toFixed(2)}</td>
         `;
