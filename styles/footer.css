@@ -45,47 +45,82 @@ footer {
   }
 }
 
-.newsletter1 {
-  position: relative;
-  input {
-    font-size: 16px;
-    font-weight: 400;
-    height: 53px;
-    padding: 6px 6px 6px 16px;
-    background: transparent;
-    border: 1px solid white-and-gray-light-gray;
-    color: white-and-gray-light-gray;
-    outline: none;
-    border-radius: 14px;
-    font-size: 16px;
-    width: 370px;
-  }
+/* Styles for larger screens */
+.h5 {
+  font-size: 24px;
+}
 
-  button {
-    position: absolute;
-    padding: 16px 40px;
-    height: 53px;
-    border-radius: 10px;
-    border: none;
-    background-color: color-yellow;
-    font-size: 16px;
-    font-weight: 500;
-    color: color-purple;
-    right: 6px;
-    top: 6px;
-    transition: all 0.5s;
 
-    &:hover {
-      cursor: pointer;
-      border-radius: 70px 10px 70px 10px;
-      box-shadow: -10px 0px white-and-gray-light-gray;
-    }
-  }
+
+.about1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .newsletter1 {
-  display: flex; /* Use flex display */
-  align-items: center; /* Vertically align content */
+  display: flex;
+  align-items: center;
+}
+
+.newsletter1 input {
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.newsletter1 button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .h5 {
+    font-size: 20px;
+  }
+
+  .newsletter1 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter1 input {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .newsletter1 button {
+    width: 80%;
+    margin-left: 0;
+  }
+}
+
+.button {
+  padding: 16px 40px;
+  height: 53px;
+  border-radius: 10px;
+  border: none;
+  background-color: color-yellow;
+  font-size: 16px;
+  font-weight: 300;
+  color: color-purple;
+  margin-top: 10px;
+  transition: all 0.5s;
+}
+
+.button:hover {
+  cursor: pointer;
+  border-radius: 70px 10px 70px 10px;
+  box-shadow: -10px 0px white-and-gray-light-gray;
+}
+
+
+.newsletter1 {
+  display: flex; 
+  align-items: center; 
 }
 
 .newsletter1 input {
@@ -93,16 +128,14 @@ footer {
   font-size: 15px;
   height: 55px;
   padding: 19px 20px;
-  /* border-radius:30px 0px 0px 30px; */
-  /* width: 300px; */
+ 
 }
 
 .newsletter1 button {
   padding: 6px 29px;
   height: 54px;
   font-size: 18px;
-  margin-left: -12px;
-  /* border-radius: 0px 30px 30px 0px; */
+  margin-left: 10px;
   background-color: #9d9d9d;
 }
 
