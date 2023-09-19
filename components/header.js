@@ -16,9 +16,10 @@ function header() {
 
       <div class="form1">
         <div class="search-bar1">
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search" id="desktop-search-input"/>
           <i class="fas fa-search search-icon"></i>
         </div>
+        <div id="desktop-search-results" style="display: none;"></div>
       </div>
 
       <div class="right-section1">
@@ -56,7 +57,7 @@ function header() {
 
       <div class="form1">
         <div class="search-bar1">
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search" id="mobile-search-input"/>
           <i class="fas fa-search search-icon"></i>
         </div>
       </div>

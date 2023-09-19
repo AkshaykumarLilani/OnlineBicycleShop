@@ -181,6 +181,15 @@ body {
 .form1 {
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+#desktop-search-results{
+  position: absolute;
+  top: 90%;
+  width: 300px;
+  min-height: 10vh;
+  background-color: gray;
 }
 
 .icons1 {
@@ -200,7 +209,7 @@ body {
 }
 
 .search-bar1 input {
-  border: none;
+  border: none !important;
   outline: none;
   flex-grow: 1;
   color: #ffffff;
@@ -338,4 +347,14 @@ body {
 
 #mobile-nav-burger  .right-section1 {
   justify-content: center;
+}
+
+.search-result-container{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-result-container > p {
+  color: white;
+  margin: 0px;
 }
