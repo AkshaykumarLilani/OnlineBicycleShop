@@ -234,3 +234,24 @@ footer a {
     font-size: 16px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .h5 {
+    font-size: 20px;
+  }
+
+  .newsletter1 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter1 input {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .newsletter1 button {
+    width: 80%;
+    margin-left: 0;
+  }
+}
