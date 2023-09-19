@@ -168,21 +168,6 @@
 </body>
 
 </html>
-
-<script type="module">
-  import footer1 from "./components/footer.js"
-  let footerContainer = document.getElementById('mainFooter');
-  footerContainer.innerHTML = footer1();
-
-  import header1 from "./components/header.js"
-  let headerContainer = document.getElementById("header1");
-  headerContainer.innerHTML = header1();
-
-  import topSection from "./components/top.js"
-  let topContainer = document.getElementById("top1");
-  topContainer.innerHTML = topSection();
-
-</script>
 <script src="./script/signup.js"></script>
 
 <script type="module">
@@ -240,7 +225,7 @@ document.getElementById("register").addEventListener("click",function (event) {
 })
 
 </script> 
-<script src="/script/navbar.js"></script>
+<script src="/script/navbar.js" type="module"></script>
  <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";

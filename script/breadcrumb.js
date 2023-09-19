@@ -20,27 +20,50 @@ const generateAndDisplayBreadCrumb = () => {
         let paths = pathname.split("/");
         console.log({ paths });
 
+        let sp = getSearchParams();
+        let categoryAdded = false;
         paths.forEach((path) => {
             if (path) {
+                let append = true;
                 let horizontalLine = document.createElement("hr");
                 horizontalLine.style.width = "30px";
                 horizontalLine.style.height = "2px";
-                breadCrumbElement.append(horizontalLine);
                 let p = document.createElement("p");
                 p.innerText = path;
                 if (path.includes("index.htm")) {
-                    let sp = getSearchParams();
                     // console.log({sp});
                     if (sp["category"]) {
                         let pt = sp["category"];
                         pt = pt[0].toUpperCase() + pt.slice(1);
                         console.log({ pt });
                         p.innerText = pt;
+                        categoryAdded = true;
+                    } else {
+                        append = false;
                     }
                 }
-                breadCrumbElement.append(p);
+                if (append) {
+                    breadCrumbElement.append(horizontalLine);
+                    breadCrumbElement.append(p);
+                }
+
             }
         });
+
+        if (sp["category"] && !categoryAdded) {
+            let horizontalLine = document.createElement("hr");
+            horizontalLine.style.width = "30px";
+            horizontalLine.style.height = "2px";
+            breadCrumbElement.append(horizontalLine);
+            let p = document.createElement("p");
+            p.innerText = path;
+            let pt = sp["category"];
+            pt = pt[0].toUpperCase() + pt.slice(1);
+            console.log({ pt });
+            p.innerText = pt;
+            categoryAdded = true;
+            breadCrumbElement.append(p);
+        }
 
         top1.insertAdjacentElement("afterend", breadCrumbElement);
     }

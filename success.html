@@ -92,23 +92,4 @@
         `;
     }
 </script>
-<script src="/script/navbar.js"></script>
-<script type="module">
-
-    import topSec from "./components/topSection.js"
-    let topContainer = document.getElementById("top");
-    topContainer.innerHTML = topSec();
-
-
-    import dropdown from "./components/dropdown.js"
-    let dropdownContainer = document.getElementById("drop-down");
-    dropdownContainer.innerHTML = dropdown();
-
-    import newslater from "./components/newslater.js"
-    let newsContainer = document.getElementById("newsletter");
-    newsContainer.innerHTML = newslater();
-
-    import footer1 from "./components/footer.js"
-    let footerContainer = document.getElementById("mainFooter");
-    footerContainer.innerHTML = footer1();
-</script>
+<script src="/script/navbar.js" type="module"></script>
