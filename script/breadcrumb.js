@@ -56,7 +56,6 @@ const generateAndDisplayBreadCrumb = () => {
             horizontalLine.style.height = "2px";
             breadCrumbElement.append(horizontalLine);
             let p = document.createElement("p");
-            p.innerText = path;
             let pt = sp["category"];
             pt = pt[0].toUpperCase() + pt.slice(1);
             console.log({ pt });
