@@ -117,3 +117,11 @@ if (mobileSearchInput) {
 window.addEventListener("scroll", ()=>{
     hideDesktopSearchResults();
 });
+
+let userData = JSON.parse(localStorage.getItem("user-data"));
+let userDataShown = localStorage.getItem("user-data-shown");
+console.log({userData});
+if (userData && !userDataShown){
+    alert(`Welcome, ${userData.displayName}`);
+    localStorage.setItem("user-data-shown", "shown");
+}
