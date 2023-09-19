@@ -15,15 +15,16 @@ This project is built as part of Masai Unit 5 - Construct Week Project.
 
 #### Tech Stack
 
-For **Frontend**, we have used JavaScript, HTML and CSS. No framework. And for **Backend**, we are using json-server to server an array of bicycles data at /bikes.
+For **Frontend**, we have used JavaScript, HTML and CSS. No framework. And for **Backend**, we are using json-server to serve an array of bicycles data at /bikes.
 
 #### Features/Highlights
 
 1. Authentication using Firebase
 2. Using localStorage to store current data
 3. Pagination, Filtering and Sorting
-4. Responsivenes using media queries and JavaScript
-5. Modular Code
+4. Searching using debouncing.
+5. Responsivenes using media queries and JavaScript
+6. Modular Code
 
 # Contributors
 
