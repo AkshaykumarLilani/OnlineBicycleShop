@@ -40,8 +40,8 @@ function header() {
     <div id="mobile-nav">
       <div id="mobile-top-nav">
         <a href="/"><img src="/images/images.png" class="logo1" alt="" /></a>
-        <button id="open-burger" onclick="showMobileNav()"><img src="/images/open-burger.png"/></button>
-        <button id="close-burger" onclick="hideMobileNav()" style="display: none;"><img src="/images/close-burger.png"/></button>
+        <button id="open-burger"><img src="/images/open-burger.png"/></button>
+        <button id="close-burger" style="display: none;"><img src="/images/close-burger.png"/></button>
       </div>
       <div id="mobile-nav-burger" style="display:none">
         <div class="left-section1">

@@ -12,7 +12,7 @@ import topSection from "/components/top.js"
 let topContainer = document.getElementById("top1");
 topContainer.innerHTML = topSection();
 
-function showMobileNav() {
+function showMobileNav () {
     let open_burger = document.getElementById("open-burger");
     let close_burger = document.getElementById("close-burger");
 
@@ -21,6 +21,10 @@ function showMobileNav() {
     open_burger.style.display = "none";
     close_burger.style.display = "block";
     mobile_navbar.style.display = "flex";
+}
+let openBurger = document.getElementById("open-burger");
+if (openBurger){
+    openBurger.addEventListener("click", showMobileNav);
 }
 
 function hideMobileNav() {
@@ -32,6 +36,10 @@ function hideMobileNav() {
     open_burger.style.display = "block";
     close_burger.style.display = "none";
     mobile_navbar.style.display = "none";
+}
+let closeBurger = document.getElementById("close-burger");
+if (closeBurger){
+    closeBurger.addEventListener("click", hideMobileNav);
 }
 
 function showDataInUI(json, message) {
